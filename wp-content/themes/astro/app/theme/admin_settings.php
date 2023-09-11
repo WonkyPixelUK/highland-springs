@@ -72,7 +72,7 @@
 					background-image: url('https://astroagency.uk/wp-content/themes/astroagency/images/header-logo.png');
 					height:100px;
 					width:300px;
-					background-size: 300px 100px;
+					background-size: contain;
 					background-repeat: no-repeat;
 					padding-bottom: 10px;
 				}
