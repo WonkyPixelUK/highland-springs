@@ -1,0 +1,13 @@
+<header class="o-header container">
+
+   <div class="o-header__inner container__inner">
+
+      {% include "components/logo.twig" %}
+
+      {% include "components/menus/main.twig" with { 'items': menu_main.get_items } %}
+
+      {% include "components/menus/secondary.twig" with { 'items': menu_secondary.get_items } %}
+
+   </div>
+
+</header>

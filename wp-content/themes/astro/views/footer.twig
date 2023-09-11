@@ -1,0 +1,39 @@
+{% set footer_logo = fn('get_theme_mod', 'footer_logo') %}
+
+{% set socials = options.socials %}
+
+<footer class="o-footer container">
+
+	<div class="o-footer__inner container__inner grid">
+
+		<div class="col-12 col-md-6">
+
+			{% if footer_logo %}
+			<a href="{{ site.url }}" title="{{ site.name }}" class="o-footer__logo">
+				<img src="{{ footer_logo }}" />
+			</a>
+			{% endif %}
+
+			<div class="o-footer__details">
+
+				{% if socials %}
+				<div class="o-footer__socials">
+					{% for social in socials %}
+						<a href="{{ social.url }}" target="_blank">
+							<img src="{{ TimberImage(social.icon_alternate) }}" />
+						</a>
+					{% endfor %}
+				</div>
+				{% endif %}
+
+			</div>
+
+		</div>
+
+		<div class="col-12 col-md-6">
+
+		</div>
+
+	</div>
+    
+</footer>

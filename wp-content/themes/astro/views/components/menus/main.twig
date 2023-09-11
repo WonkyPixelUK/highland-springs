@@ -1,0 +1,32 @@
+{% if items %}
+
+<div class="e-burger js-burger">
+  <span class="e-burger__line e-burger__line--1"></span>
+  <span class="e-burger__line e-burger__line--2"></span>
+</div>
+
+<nav class="c-navigation{% if type == 'footer' %} c-navigation--footer{% endif %} js-menu">
+
+  <ul class="c-navigation__list">
+
+    {% for item in items %}
+
+    <li class="{{ item.classes|join(' ') }} c-navigation__item">
+      
+      {% if item.link %}
+
+        <a class="c-navigation__link" target="{{ item.target }}" href="{{ item.link }}">
+          {{ item.title }}
+        </a>
+
+      {% endif %}
+
+    </li>
+
+    {% endfor %}
+
+  </ul>
+
+</nav>
+
+{% endif %}

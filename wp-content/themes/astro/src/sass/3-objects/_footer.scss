@@ -1,0 +1,26 @@
+.o-footer {
+	background-color: $color-primary;
+	color: $white;
+	position: relative;
+
+	&__logo {
+		display: block;
+		@include fluid-size('margin-bottom', 30px, 55px, 1024px, 1450px);
+		width: 220px;
+
+		@include large {
+			width: auto;
+		}
+	}
+
+	&__socials {
+		display: flex;
+		gap: 0 30px;
+		@include fluid-size('margin-top', 30px, 50px, 1024px, 1450px);
+
+		img {
+			@include fluid-size('max-height', 30px, 50px, 1024px, 1450px);
+			@include fluid-size('max-width', 30px, 50px, 1024px, 1450px);
+		}
+	}
+}

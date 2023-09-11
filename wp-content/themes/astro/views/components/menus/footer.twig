@@ -1,0 +1,27 @@
+{% if items %}
+
+<nav class="c-navigation c-navigation--footer js-footer-menu">
+
+  <ul class="c-navigation__list">
+
+    {% for item in items %}
+
+    <li class="{{ item.classes|join(' ') }} c-navigation__item">
+      
+      {% if item.link %}
+
+        <a class="c-navigation__link" target="{{ item.target }}" href="{{ item.link }}">
+          {{ item.title }}
+        </a>
+
+      {% endif %}
+
+    </li>
+
+    {% endfor %}
+
+  </ul>
+
+</nav>
+
+{% endif %}

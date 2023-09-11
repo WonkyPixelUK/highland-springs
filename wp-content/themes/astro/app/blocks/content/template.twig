@@ -1,0 +1,29 @@
+{# Content Block #}
+{% set content = fields.content %}
+
+<div class="b-content" id="b-content-{{ block.id }}">
+
+	<div class="container b-content__container">
+
+		<div class="container__inner grid">
+
+			<div class="col-12 col-md-2"></div>
+			
+			<div class="col-12 col-md-8">
+
+				<div class="b-content__content">
+
+					{{ content }}
+
+				</div>
+
+			</div>
+
+			<div class="col-12 col-md-2"></div>
+
+		</div>
+
+	</div>
+
+</div>
+  

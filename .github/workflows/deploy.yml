@@ -1,0 +1,52 @@
+name: Deploy
+env:
+  SSH_HOST: ${{ secrets.CLOUDWAYS_IP }}
+  SSH_USER: ${{ secrets.CLOUDWAYS_USERNAME }}
+  SSH_KEY: ${{ secrets.CLOUDWAYS_KEY }}
+  SSH_DESTINATION: "/home/926960.cloudwaysapps.com/jsthvtaang/public_html/"
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  deploy_cloudways:
+    name: Deploy to Cloudways
+    runs-on: ubuntu-latest
+    steps:
+      # CHECKOUT
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Add SSH key
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          mkdir -p /home/runner/.ssh
+          ssh-keyscan $SSH_HOST >> /home/runner/.ssh/known_hosts
+          echo "$SSH_KEY" > /home/runner/.ssh/github_actions
+          chmod 600 /home/runner/.ssh/github_actions
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null	
+          ssh-add /home/runner/.ssh/github_actions
+      # NODE
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+      # PNPM
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.11.0
+      # DEPENDENCIES
+      - name: Install dependencies
+        run: |
+          composer config --no-plugins allow-plugins.composer/installers true
+          composer config --no-plugins allow-plugins.ffraenz/private-composer-installer true
+          composer config --no-plugins allow-plugins.gotoandplay/gravityforms-composer-installer true
+          composer install
+          pnpm install
+      # BUILD
+      - name: Build
+        run: pnpm run build
+      # SEND FILES
+      - name: Send files
+        run: "rsync -avO -e 'ssh -i /home/runner/.ssh/github_actions -v -o StrictHostKeyChecking=no' --progress --no-owner --no-group --no-perms --exclude-from=${{ env.EXCLUDES }} ./ ${{ env.SSH_USER }}@${{ env.SSH_HOST }}:${{ env.SSH_DESTINATION }}"
+        env:
+          EXCLUDES: bin/rsync-excludes.txt

@@ -1,0 +1,30 @@
+<?php
+
+    namespace App\Blocks;
+
+    /**
+     * REQUIRE BASE
+     */    
+    require_once __DIR__ . '/block-categories.php';
+    require_once __DIR__ . '/defaults.php';
+    require_once __DIR__ . '/base.php';
+    
+    /**
+     * REQUIRE BLOCKS
+     */
+    require_once __DIR__ . '/content/index.php';
+
+    /**
+     * INSTANTIATE BLOCKS
+    */
+    
+    // Block Categories
+    new BlockCategories();
+
+    // Defaults
+    new Defaults();
+    
+    // Content
+    new Content();
+
+?>

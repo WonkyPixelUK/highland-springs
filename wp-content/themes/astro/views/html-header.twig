@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html {{site.language_attributes}} data-scroll-direction="vertical" data-direction="null">
+
+	<head>
+
+		<meta charset="{{ site.charset }}">
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="dns-prefetch" href="//{{ site.url }}">
+		<link rel="dns-prefetch" href="https://www.google-analytics.com">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+		<base href="{{ site.url }}">
+
+		{{ fn('wp_head') }}
+		
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ theme.link }}/dist/img/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="48x48" href="{{ theme.link }}/dist/img/favicon/favicon-48x48.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ theme.link }}/dist/img/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ theme.link }}/dist/img/favicon/favicon-16x16.png">
+		<link rel="icon" type="image/x-icon" href="{{ theme.link }}/dist/img/favicon/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="{{ theme.link }}/dist/img/favicon/favicon.ico">
+		<link rel="manifest" href="{{ theme.link }}/dist/img/favicon/site.webmanifest">
+		<link rel="mask-icon" href="{{ theme.link }}/dist/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#5e724f">
+		<meta name="theme-color" content="#ffffff">
+
+		{{ options.scripts_head|raw }}
+		
+	</head>

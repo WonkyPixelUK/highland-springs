@@ -1,0 +1,79 @@
+html {
+  box-sizing: border-box;
+  font-size: $font-size-base;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  overflow-y: unset;
+}
+
+body {
+  background: rgb(255,255,255);
+  color: $color-primary;
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: 300;
+  overflow-x: hidden;
+  
+  &.show {
+    overflow-y: hidden;
+  }
+}
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+
+  font-synthesis: inherit;
+}
+
+address {
+  font-size: inherit;
+  font-style: inherit;
+}
+
+figure {
+  margin: 0;
+}
+
+.touch {
+  cursor: pointer;
+}
+
+::selection {
+  color: $white;
+}
+
+a,
+area,
+button,
+[role='button'],
+input:not([type='range']),
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+ul li {
+  list-style: none;
+}
+
+.for-mobile {
+  @include large {
+    display: none;
+  }
+}
+
+.for-desktop {
+  @media (max-width: $break-mobile) {
+    display: none;
+  }
+}

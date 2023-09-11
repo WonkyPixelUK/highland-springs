@@ -1,0 +1,17 @@
+.align {
+	display: flex;
+
+	&__h {
+		&--center {
+			@extend .align;
+			justify-content: center
+		}
+	}
+
+	&__v {
+		&--center {
+			@extend .align;
+			align-items: center;
+		}
+	}
+}

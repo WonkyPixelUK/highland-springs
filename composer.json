@@ -1,0 +1,70 @@
+{
+    "name": "wp/astro",
+    "description": "Composer package to setup Astro theme.",
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        },
+        {
+          "type": "composer",
+          "url": "https://wpmudev.com/"
+        },
+        {
+            "type": "package",
+            "package": {
+              "name": "advanced-custom-fields/advanced-custom-fields-pro",
+              "version": "6.2.0",
+              "type": "wordpress-plugin",
+              "dist": {
+                "type": "zip",
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k={%WP_PLUGIN_ACF_KEY}"
+              }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+              "name": "gravityforms/gravityforms",
+              "version": "2.7.12",
+              "type": "wordpress-plugin",
+              "dist": {
+                "type": "zip",
+                "url": "https://www.gravityhelp.com/wp-content/plugins/gravitymanager/api.php?op=get_plugin&slug=gravityforms&key={%WP_PLUGIN_GF_KEY}"
+              },
+              "require": {
+                "gotoandplay/gravityforms-composer-installer": "^2.3"
+              }
+            }
+        }
+    ],
+    "require": {
+        "stoutlogic/acf-builder": "^1.12",
+        "wpackagist-plugin/timber-library": "*",
+        "wpackagist-plugin/advanced-custom-fields-font-awesome": "*",
+        "wpackagist-plugin/safe-svg":"*",
+        "wpackagist-plugin/postmark-approved-wordpress-plugin": "*",
+        "wpackagist-plugin/duplicate-page": "*",
+        "wpackagist-plugin/malcare-security": "*",
+        "advanced-custom-fields/advanced-custom-fields-pro" : "*",
+        "gravityforms/gravityforms": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "ffraenz/private-composer-installer": true,
+            "gotoandplay/gravityforms-composer-installer": true
+        }
+    },
+    "extra": {
+        "wordpress-install-dir": "wp",
+        "wp-content/plugins/{$name}/": [
+          "type:wordpress-plugin"
+      ]
+    }
+}
