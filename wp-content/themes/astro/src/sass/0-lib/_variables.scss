@@ -1,8 +1,8 @@
 $asset-path: '/wp-content/themes/astro/dist';
 $image-path: '/wp-content/themes/astro/dist/img';
 
-$font-primary: 'futura-pt', sans-serif;
-$font-secondary: 'garamond-premier-pro', serif;
+$font-primary: 'inter', sans-serif;
+$font-secondary: 'bernino sans', serif;
 
 $font-size-base: 16px;
 $font-lock-min:  480px !default; 
@@ -21,11 +21,12 @@ $grid-gap-desktop: 32px;
 
 $grid-columns: 12;
 
-$white: #ffffff;
-$black: #000000;
+$white: #FEFDF8;
+$black: #262626;
+$purple: #552B8B;
 
 // COLOURS
-$color-primary: $black;
+$color-primary: $purple;
 $color-secondary: $black;
 
 // System

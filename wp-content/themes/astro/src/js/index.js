@@ -1,3 +1,7 @@
-// import example from "./example";
+import menu from "./menu";
+import menuVideo from "./menuVideo";
+import menuNested from "./menuNested";
 
-// example();
+menu();
+menuVideo();
+menuNested(); 

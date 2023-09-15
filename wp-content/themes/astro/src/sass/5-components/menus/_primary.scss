@@ -1,0 +1,23 @@
+.c-navigation--primary{
+  display: flex; 
+  margin-top: 35px;
+  align-items: center;
+  height: fit-content;
+}
+
+.secondary-open{
+  .c-navigation__list{
+    display: none;
+  }
+}
+
+.c-navigation__list{
+  display: flex;
+}
+
+.c-navigation__link{
+  text-decoration: none;
+  color: $white;
+  margin-right: 40px;
+  text-transform: uppercase;
+}

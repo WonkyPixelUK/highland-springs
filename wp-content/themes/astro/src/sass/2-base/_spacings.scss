@@ -1,0 +1,34 @@
+@use "sass:math";
+
+$spacings: (
+	"xs": 14px,
+	"s": 30px,
+	"m": 42px,
+	"l": 70px,
+	"xl": 100px,
+	"xxl": 126px
+);
+
+.spacing {
+	&__margin {
+		@each $name, $space in $spacings {
+			&--#{$name}-b {
+				@include fluid-size('margin-bottom', math.div($space, 2), $space, 1024px, 1450px);
+			}
+			&--#{$name}-t {
+				@include fluid-size('margin-top', math.div($space, 2), $space, 1024px, 1450px);
+			}
+		}
+	}
+
+	&__padding {
+		@each $name, $space in $spacings {
+			&--#{$name}-b {
+				@include fluid-size('padding-bottom', math.div($space, 2), $space, 1024px, 1450px);
+			}
+			&--#{$name}-t {
+				@include fluid-size('padding-top', math.div($space, 2), $space, 1024px, 1450px);
+			}
+		}
+	}
+}
