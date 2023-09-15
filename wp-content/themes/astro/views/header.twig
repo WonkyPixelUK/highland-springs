@@ -1,13 +1,20 @@
 <header class="o-header container">
 
-   <div class="o-header__inner container__inner">
+  {# decorative background wave #}
+  <div class="o-header__background-shape">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 138" fill="none">
+      <path d="M1535.42 1.98859C1474.95 71.3653 1353.37 145.949 1113.15 137.006C702.038 121.7 797.085 -48.4295 -323.017 -90.1316C-1443.12 -131.834 -1877.54 67.2347 -2397.59 47.8728C-2486.33 44.5689 -2562.38 31.3412 -2620.26 6.8742C-2868.56 -98.1005 -2776.69 -397.442 -2776.69 -397.442L1544.3 -236.568L1535.42 1.98859Z" fill="#552B8B"/>
+    </svg>
+  </div>
 
-      {% include "components/logo.twig" %}
+  <div class="o-header__inner ">
 
-      {% include "components/menus/main.twig" with { 'items': menu_main.get_items } %}
+    {% include "components/logo.twig" %}
 
-      {% include "components/menus/secondary.twig" with { 'items': menu_secondary.get_items } %}
+    {% include "components/menus/primary.twig" with { 'items': menu_main.get_items } %}
 
-   </div>
+  </div>
 
 </header>
+
+{% include "components/menus/secondary.twig" with { 'items': menu_secondary.get_items } %}

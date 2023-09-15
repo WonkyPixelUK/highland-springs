@@ -1,62 +1,98 @@
 {% if items %}
 
-<div class="e-burger e-burger--secondary js-burger-secondary">
-  <span class="e-burger__line e-burger__line--1"></span>
-  <span class="e-burger__line e-burger__line--2"></span>
-</div>
+{% set socials = options.socials %}
 
-<nav class="c-navigation--secondary js-menu-secondary">
-
-  <ul class="c-navigation--secondary__list">
-
-    {% for item in items %}
-
-    <li class="{{ item.classes|join(' ') }} c-navigation--secondary__item">
+<nav class="c-navigation c-navigation--secondary">
+  <div class="c-navigation__inner">
+    <div class="c-navigation__wrapper">
       
-      {% if item.link %}
+      {# navigation #}
+      <ul class="c-navigation__list c-navigation__list--top-level">
 
-        <a class="c-navigation--secondary__link" target="{{ item.target }}" href="{{ item.link }}">
-          {{ item.title }}
-        </a>
-
-      {% else %}
-
-        <span class="c-navigation--secondary__text">
-          {{ item.title }}
-        </span>
-
-      {% endif %}
-
-      {% if item.children %}
-
-        <ul class="c-navigation--secondary-2__list">
-
-        {% for child in item.children %}
-
-          <li class="{{ child.classes|join(' ') }} c-navigation--secondary-2__item">
-
-            {% if child.link %}
-
-              <a class="c-navigation--secondary-2__link" target="{{ child.target }}" href="{{ child.link }}">
-                {{ child.title }}
+        {% for item in items %}
+          <li class="{{ item.classes|join(' ') }} c-navigation__item c-navigation__item--level1 {% if item.children %} c-navigation__has-nested {% endif %}">
+            
+            {% if not item.children %}
+              
+              <a class="c-navigation__link" target="{{ item.target }}" href="{{ item.link }}">
+                {{ item.title }}
               </a>
+
+            {% else %}
+
+              <button class="c-navigation__link c-navigation__link--nested-trigger">
+                {{ item.title }}
+              </button>
+
+              {# children #}
+              {% if item.children %}
+                <ul class="c-navigation__list c-navigation__list--nested">
+                  {% for child in item.children %}
+                  <li class="{{ child.classes|join(' ') }} c-navigation__item navigation__item--nested">
+                    {% if child.link %} 
+                      <a class="c-navigation__link" target="{{ child.target }}" href="{{ child.link }}">
+                        {{ child.title }} 
+                      </a>
+                    {% endif %}
+                  </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
 
             {% endif %}
 
           </li>
-
         {% endfor %}
 
-        </ul>
+      </ul>
 
+      {# video embed #}
+      <div>
+        <div class="c-navigation__video">
+          
+          <div class="c-navigation__video-play-wrapper">
+            <button class="c-navigation__video-play">
+              <div class="c-navigation__video-play-icon"></div>
+            </button>
+          </div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk?si=oNrzDsmmx5Tp3i-X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        </div>
+
+        {# crazy box shadow #}
+        <svg class="c-navigation__video-shadow" width="574" height="92" viewBox="0 0 574 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_f_535_12547)"><path d="M554.855 45.1177L553.571 72.155C515.865 63.6738 410.753 45.3009 291.95 39.6599L250.64 30.673L554.855 45.1177Z" fill="black" fill-opacity="0.6"/></g>
+          <g filter="url(#filter1_f_535_12547)"><path d="M20.7153 19.7539L19.4315 46.7913C57.7713 41.9208 164.152 33.59 282.955 39.231L324.931 34.1986L20.7153 19.7539Z" fill="black" fill-opacity="0.6"/></g>
+          <defs>
+            <filter id="filter0_f_535_12547" x="231.64" y="11.6729" width="342.215" height="79.4824" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="9.5" result="effect1_foregroundBlur_535_12547"/>
+            </filter>
+            <filter id="filter1_f_535_12547" x="0.431641" y="0.753906" width="343.499" height="65.0376" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="9.5" result="effect1_foregroundBlur_535_12547"/>
+            </filter>
+          </defs>
+        </svg>
+
+      </div> {# eof video #}
+
+      {# social media icons #}
+      {% if socials %}
+      <div class="c-navigation__socials">
+        {% for social in socials %}
+          <a href="{{ social.url }}" target="_blank">
+            <img src="{{ Image(social.icon) }}" />
+          </a>
+        {% endfor %}
+      </div>
       {% endif %}
 
-    </li>
-
-    {% endfor %}
-
-  </ul>
-
+    </div>
+  </div>
 </nav>
+
 
 {% endif %}

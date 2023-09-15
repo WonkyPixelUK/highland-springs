@@ -1,11 +1,6 @@
 {% if items %}
 
-<div class="e-burger js-burger">
-  <span class="e-burger__line e-burger__line--1"></span>
-  <span class="e-burger__line e-burger__line--2"></span>
-</div>
-
-<nav class="c-navigation{% if type == 'footer' %} c-navigation--footer{% endif %} js-menu">
+<nav class="c-navigation c-navigation--primary">
 
   <ul class="c-navigation__list">
 
@@ -27,6 +22,9 @@
 
   </ul>
 
+  {% include 'elements/burger.twig' %}
+
 </nav>
+
 
 {% endif %}
