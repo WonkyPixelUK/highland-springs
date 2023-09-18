@@ -1,0 +1,8 @@
+<div class="c-carousel">
+  <div class="c-carousel__images">
+    {% for image in images %}
+      {% set image = Image(image) %}
+      <img draggable="false" class="c-carousel__item c-carousel__item--{{loop.index0}}" src="{{ image.src }}" alt="{{ image.alt }}">
+    {% endfor %}
+  </div>
+</div>

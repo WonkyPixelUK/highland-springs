@@ -10,12 +10,16 @@ $container-padding: 85px;
   left:0;
   width:100vw;
   height: 100vh;
-  z-index: 2;
+  z-index: 1000;
   background-color: $color-primary;
 
   &.is-open{
     opacity:1;
     visibility: visible;
+  }
+  
+  a, button {
+    @extend .bernino;
   }
 
   .c-navigation__inner{

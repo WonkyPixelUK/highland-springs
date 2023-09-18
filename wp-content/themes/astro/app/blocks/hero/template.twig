@@ -1,0 +1,80 @@
+{# Hero Block #}
+{% set type = fields.type %}
+{% set content = fields.content %}
+{% set background = Image(fields.background) %}
+{% set title = fields.title %}
+{% set subtitle = fields.subtitle %}
+{% set link = fields.link %}
+
+{% if type == "with-carousel" %}
+  {% set carousel_title = fields.carousel_title %}
+  {% set carousel_subtitle = fields.carousel_subtitle %}
+  {% set carousel_link = fields.carousel_link %}
+  {% set carousel_images = fields.carousel_images %}
+{% endif %}
+
+
+{# The hero - image, bubbles and text #}
+<div class="b-hero" id="b-hero-{{ block.id }}">
+
+  {# background image #}
+  <img class="b-hero__background" src="{{background.src}}" alt="{{background.alt}}">
+  <div class="b-hero__background-gradient"></div>
+
+  {# droplets #}
+  <div class="b-hero__droplet b-hero__droplet-1"></div>
+  <div class="b-hero__droplet b-hero__droplet-2"></div>
+  <div class="b-hero__droplet b-hero__droplet-3"></div>
+  <div class="b-hero__droplet b-hero__droplet-4"></div>
+  <div class="b-hero__droplet b-hero__droplet-5"></div>
+  <div class="b-hero__droplet b-hero__droplet-6"></div>
+  <div class="b-hero__droplet b-hero__droplet-7"></div>
+
+  {# content #}
+  <div class="container b-hero__container">
+    <div class="container__inner b-hero__container-inner flex">
+      
+      <div class="b-hero__content">
+        <h1 class="b-hero__title bernino">{{title}}</h1>
+        <h2 class="b-hero__subtitle">{{subtitle}}</h2>
+        <a class="b-hero__link e-button e-button--primary" href="{{link.url}}">{{link.title}}</a>
+      </div>
+
+      {# hovering bottle #}
+      <div class="b-hero__bottle"></div>
+
+    </div>
+  </div>
+</div>
+
+{# carousel #}
+{% if type == "with-carousel" %}
+<div class="b-hero-carousel">
+
+  <div class="b-hero-carousel__background">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 138" fill="none">
+      <path d="M1535.42 1.98859C1474.95 71.3653 1353.37 145.949 1113.15 137.006C702.038 121.7 797.085 -48.4295 -323.017 -90.1316C-1443.12 -131.834 -1877.54 67.2347 -2397.59 47.8728C-2486.33 44.5689 -2562.38 31.3412 -2620.26 6.8742C-2868.56 -98.1005 -2776.69 -397.442 -2776.69 -397.442L1544.3 -236.568L1535.42 1.98859Z" fill="#F3E8FF"/>
+    </svg>
+  </div>
+
+  <div class="container b-hero-carousel__container">
+    <div class="container__inner b-hero-carousel__container-inner flex">
+      
+      <div class="b-hero-carousel__content">
+        <h1 class="b-hero-carousel__title bernino">{{carousel_title}}</h1>
+        
+        {% include 'views/components/carousel.twig' with {
+          images: carousel_images
+        } %}
+
+        <h2 class="b-hero-carousel__subtitle">{{carousel_subtitle}}</h2>
+        <a class="b-hero-carousel__link e-button e-button--primary" href="{{carousel_link.url}}">{{carousel_link.title}}</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+{% endif %}
+  
