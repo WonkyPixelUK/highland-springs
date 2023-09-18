@@ -1,3 +1,15 @@
 .e-button {
+  border-radius: 45px;
+  padding: 10px 30px;
+  text-decoration: none;  
+  display: inline-block;
+  font-family: $font-secondary;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
+
+.e-button--primary {
+  background-color: $color-primary;
+  color: $white;
 }

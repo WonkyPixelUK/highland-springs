@@ -36,7 +36,12 @@
 			if ( function_exists( 'acf_add_local_field_group' ) ) {
 
 				$fields = new FieldsBuilder( 'theme_options' );
-            	$fields
+          $fields
+          ->addTab('header')
+            ->addText('menu_video', [
+              'label' => 'Main menu video',
+              'instructions' => 'Youtube video ID',
+            ])
 					->addTab('socials')
 						->addRepeater('socials')
 							->addImage('icon', [

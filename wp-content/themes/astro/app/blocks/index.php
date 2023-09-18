@@ -13,6 +13,7 @@
      * REQUIRE BLOCKS
      */
     require_once __DIR__ . '/content/index.php';
+    require_once __DIR__ . '/hero/index.php';
 
     /**
      * INSTANTIATE BLOCKS
@@ -26,5 +27,8 @@
     
     // Content
     new Content();
+
+    // Hero
+    new Hero();
 
 ?>

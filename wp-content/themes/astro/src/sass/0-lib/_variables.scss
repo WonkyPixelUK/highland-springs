@@ -1,8 +1,10 @@
+@import url("https://use.typekit.net/tyt5cwc.css");
+
 $asset-path: '/wp-content/themes/astro/dist';
 $image-path: '/wp-content/themes/astro/dist/img';
 
 $font-primary: 'inter', sans-serif;
-$font-secondary: 'bernino sans', serif;
+$font-secondary: 'jaf-bernino-sans-comp', sans-serif;
 
 $font-size-base: 16px;
 $font-lock-min:  480px !default; 
@@ -24,6 +26,7 @@ $grid-columns: 12;
 $white: #FEFDF8;
 $black: #262626;
 $purple: #552B8B;
+$lilac: #F3E8FF;
 
 // COLOURS
 $color-primary: $purple;

@@ -1,0 +1,11 @@
+{
+    "name": "astro/hero",
+    "title": "Hero",
+    "description": "Hero block.",
+    "category": "astro",
+    "icon": "align-wide",
+    "keywords": ["hero"],
+    "acf": {
+        "mode": "auto"
+    }
+}
