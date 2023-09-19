@@ -21,7 +21,8 @@
   img{
     border-radius: 10px;
     object-fit: cover;
-    @include fluid-size('height', 200px, 400px);
+    height: 100%;
+    @include fluid-size('min-height', 200px, 400px);
   }
 
   &__card-content{
