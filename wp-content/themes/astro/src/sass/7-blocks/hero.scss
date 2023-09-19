@@ -42,8 +42,8 @@
     z-index: 999;
     
     &-1{
-      top:670px;
-      left: 1200px;
+      top:800px;
+      left: 1250px;
       width: 67px;
       height: 49px;
       background-image: url("/images/droplets/4.svg");
@@ -63,7 +63,7 @@
       background-image: url("/images/droplets/3.svg");
     }
     &-4{
-      top: 650px;
+      top: 900px;
       left:600px;
       width: 71.063px;
       height: 82.524px;
@@ -134,32 +134,43 @@
 
 .b-hero-carousel{
   position: relative;
-  margin-top: -160px;
-
+  @include fluid-size("margin-top", -160px, -250px, $font-lock-max, 2400px);
 
   &__background{
-    width: 100%;
-    transform: rotateX(180deg);
-    z-index: -1;
-    top:0;
-    left:0;
-
-    svg{
-      width: 100%;
-      object-fit: cover;
-    }
+    width: 100vw;
+    background-image: url("/images/lical-wave.png");
+    background-position: center;
+    background-size: cover;
+    @include fluid-size("height", 140px, 250px, $font-lock-max, 2400px);
   }
 
   &__container{
+    margin-top: -5px;
     background-color: $lilac;
+
+
+    &:before{
+      content: '';
+      background: url('/images/bg-texture.png');
+      opacity: 0.6;
+      mix-blend-mode: multiply;
+      position: absolute;
+      left:0;
+      top:0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
   }
 
   &__container-inner{
     padding-top:90px;
     padding-bottom: 90px;
     align-items: center;
-    justify-content: center
+    justify-content: center;
   }
+
+  
 
   &__title{
     @include font-size(80px, 220px); 
@@ -185,4 +196,34 @@
     max-width: fit-content;
   }
 
+  // droplets
+  &__droplet{
+    position: absolute;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 999;
+    
+    &-1{
+      top:120px;
+      left: 45px;
+      width: 37px;
+      height: 43px;
+      background-image: url("/images/droplets/3.svg");
+    } 
+    &-2{
+      top:250px;
+      left: 830px;
+      width: 37px;
+      height: 43px;
+      background-image: url("/images/droplets/17.svg");
+    } 
+    &-3{
+      top:1000px;
+      left: 200px;
+      width: 56px;
+      height: 65px;
+      background-image: url("/images/droplets/115.svg");
+    } 
+  }
 }

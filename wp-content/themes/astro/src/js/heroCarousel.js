@@ -2,7 +2,7 @@
  * Initialize
  */
 const initialize = () => {
-  let carousel = document.querySelector('.c-carousel');
+  let carousel = document.querySelector('.js-carousel');
 
   if (carousel) {
     swipeListen(carousel);
@@ -13,6 +13,27 @@ const initialize = () => {
 /**
  * Add functions here
  */
+let updateSlider = (carousel, direction) => {
+  let slider = carousel.querySelector('.js-carousel-slider');
+  let value = parseInt(slider.value);
+
+  if(direction == 'left') {
+    value = parseInt(value);
+    value = value - 1;
+    if(value < 1){
+      slider.value = 6;
+    }else{
+      slider.value = value
+    }
+  }else{
+    value = value + 1;
+    if(value > 6){
+      slider.value = 1;
+    }else{
+      slider.value = value
+    }
+  }
+}
 
 let swipeListen = (carousel) => {
   let touchstartX = 0
@@ -85,7 +106,7 @@ let swipeCarousel = (carousel, direction) => {
     }
   }
 
+  updateSlider(carousel, direction)
 }
-
 
 export default initialize;

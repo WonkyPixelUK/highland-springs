@@ -1,8 +1,12 @@
-<div class="c-carousel">
+<div class="c-carousel js-carousel">
   <div class="c-carousel__images">
     {% for image in images %}
       {% set image = Image(image) %}
       <img draggable="false" class="c-carousel__item c-carousel__item--{{loop.index0}}" src="{{ image.src }}" alt="{{ image.alt }}">
     {% endfor %}
+  </div>
+
+  <div class="c-carousel__slider">
+    <input disabled type="range" min="1" max="6" value="1" step="1" class="js-carousel-slider" id="myRange">
   </div>
 </div>
