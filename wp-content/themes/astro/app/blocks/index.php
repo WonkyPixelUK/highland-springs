@@ -15,6 +15,7 @@
     require_once __DIR__ . '/content/index.php';
     require_once __DIR__ . '/hero/index.php';
     require_once __DIR__ . '/marquee/index.php';
+    require_once __DIR__ . '/single-signposting/index.php';
 
     /**
      * INSTANTIATE BLOCKS
@@ -34,4 +35,7 @@
 
     // Marquee
     new Marquee();
+
+    // Single signposting
+    new SingleSignposting();
 ?>
