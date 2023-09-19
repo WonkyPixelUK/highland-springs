@@ -16,6 +16,7 @@
     require_once __DIR__ . '/hero/index.php';
     require_once __DIR__ . '/marquee/index.php';
     require_once __DIR__ . '/single-signposting/index.php';
+    require_once __DIR__ . '/triple-signposting/index.php';
 
     /**
      * INSTANTIATE BLOCKS
@@ -38,4 +39,7 @@
 
     // Single signposting
     new SingleSignposting();
+
+    // Triple signposting
+    new TripleSignposting();
 ?>

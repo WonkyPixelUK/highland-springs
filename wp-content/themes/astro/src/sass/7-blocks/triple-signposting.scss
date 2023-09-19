@@ -1,0 +1,76 @@
+.b-triple-signposting{
+  background-color: $lilac;
+  padding-top: 150px;
+  padding-bottom: 150px;
+
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    @include fluid-size('margin-bottom', 15px, 50px);
+
+    h2{
+      @extend .text-5xl;
+      text-transform: uppercase;
+    }
+  }
+
+  &__posts{
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 1400px;
+    margin:auto;
+  }
+
+  &__card{
+    background-color: $white;
+    padding: 19px 16px;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.12));
+    border-radius: 5px; 
+  }
+
+  &__card-wrapper{
+    max-width: 500px;
+    
+    @include large{
+      &:nth-child(1){
+        transform: rotate(-1.82deg);
+      }
+      &:nth-child(3){
+        transform: rotate(1.82deg);
+      }
+    }
+  }
+
+  &__card-shadow{ 
+    margin-top: -30px;
+  }
+
+  img{
+    object-fit: cover;
+    height: 360px;
+    width: 100%;
+    @include fluid-size('height', 160px, 360px);
+  }
+
+  &__card-content{
+    padding-top:10px;
+    padding-bottom: 10px;
+    display: grid;
+    align-content: space-between;
+    height: 100%;
+
+    h3{
+      @include font-size(24px, 30px);
+      color: $black;
+      text-transform: uppercase;
+      @include fluid-size('margin-bottom', 30px, 70px);
+    }
+
+    a{
+      align-self: end;
+      justify-self: start;
+    }
+  }
+}

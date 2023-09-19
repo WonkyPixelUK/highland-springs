@@ -1,0 +1,56 @@
+{# Triple signpost Block #}
+{% set cards = fields.posts %}
+
+<div class="b-triple-signposting container" id="b-triple-signposting-{{ block.id }}">
+  
+  
+  <div class="container__inner">
+    <div class="b-triple-signposting__top">
+      <h2>{{fields.title}}</h2>
+      <a class="e-button e-button--primary" href="{{fields.button.url}}">{{fields.button.title}}</a>
+    </div>
+  </div>
+
+  <div class="b-triple-signposting__posts grid">
+  {% for card in cards %}
+  
+    {% set card = Post(card) %}
+    {% set title = card.title %}
+    {% set buttonUrl = card.url %}
+    {% set buttonText = 'View article'  %}
+    {% set image = Image(card.thumbnail).src|resize(500) %}
+    {% set imageAlt = Image(card.thumbnail).alt %}
+      
+    <div class="col-12 col-lg-4 b-triple-signposting__card-wrapper">
+      <div class="b-triple-signposting__card ">
+        <img loading="lazy" src="{{image}}" alt="{{imageAlt}}">
+
+        <div class="b-triple-signposting__card-content">
+          <div>
+            <h3>{{title}}</h3>
+            <p>{{excerpt}}</p>
+          </div>
+          <a target="{{buttonTarget}}" href="{{buttonUrl}}" class="e-button e-button--secondary b-triple-signposting__card-link">{{buttonText}}</a>
+        </div>
+
+      </div>
+     
+      {# card shadow #}
+      <svg class="b-triple-signposting__card-shadow" xmlns="http://www.w3.org/2000/svg" width="100%" height="67" viewBox="0 0 1125 67" fill="none">
+        <g filter="url(#filter0_f_628_9392)">
+        <path d="M19 19.918V47.9995C95.205 41.0658 307.141 27.1984 545.246 27.1984C783.351 27.1984 1018.29 41.0658 1106 47.9995V19.918H19Z" fill="black" fill-opacity="0.19"/>
+        </g>
+        <defs>
+        <filter id="filter0_f_628_9392" x="0" y="0.917969" width="1125" height="66.0815" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+        <feGaussianBlur stdDeviation="9.5" result="effect1_foregroundBlur_628_9392"/>
+        </filter>
+        </defs>
+      </svg>
+
+    </div>
+  {% endfor %}
+
+  </div>
+</div>

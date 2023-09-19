@@ -11,7 +11,7 @@
     background-color: $white;
     padding: 10px;
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.12));
-    border-radius: 5px;
+    border-radius: 10px;
   }
 
   &__card-shadow{ 
@@ -21,6 +21,7 @@
   img{
     border-radius: 10px;
     object-fit: cover;
+    @include fluid-size('height', 200px, 400px);
   }
 
   &__card-content{
