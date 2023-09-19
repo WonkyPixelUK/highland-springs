@@ -183,8 +183,8 @@
 
   &__subtitle{
     font-family: $font-primary;
-    @include font-size(16px, 14px);
-    @include line-height(22px, 18px);
+    @include font-size(14px, 16px);
+    @include line-height(18px, 22px);
     color: $black;
     text-align: center;
   }
