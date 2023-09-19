@@ -1,0 +1,32 @@
+.b-marquee {
+  width: 100vw;
+  height: 0px;
+  @include fluid-size('margin-top', -25px, -53px);
+	color: white;
+  z-index: 995;
+  display: flex;
+  user-select: none;
+  gap: 1rem;
+  
+  p{
+    @extend .bernino;
+    text-transform: uppercase;
+    @include line-height(50px, 105px);
+    @include font-size(50px, 90px);
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: 1rem;
+    animation: marquee 25s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 1rem));
+  }
+}

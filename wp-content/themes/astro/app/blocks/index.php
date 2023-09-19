@@ -14,6 +14,7 @@
      */
     require_once __DIR__ . '/content/index.php';
     require_once __DIR__ . '/hero/index.php';
+    require_once __DIR__ . '/marquee/index.php';
 
     /**
      * INSTANTIATE BLOCKS
@@ -31,4 +32,6 @@
     // Hero
     new Hero();
 
+    // Marquee
+    new Marquee();
 ?>

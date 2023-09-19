@@ -1,0 +1,11 @@
+{# Content Block #}
+{# ref https://ryanmulligan.dev/blog/css-marquee/ #}
+{% set text = fields.text %}
+
+<div class="b-marquee" id="b-marquee-{{ block.id }}">
+  
+  <p>{{text}} · {{text}} · {{text}} ·</p>
+  {# copy of the content for the marquee to appear infinite #}
+  <p aria-hidden="true">{{text}} · {{text}} · {{text}} · </p>
+
+</div>
