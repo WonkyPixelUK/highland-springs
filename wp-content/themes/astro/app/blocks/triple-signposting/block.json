@@ -1,0 +1,11 @@
+{
+    "name": "astro/triple-signposting",
+    "title": "Triple signposting",
+    "description": "Triple signposting.",
+    "category": "astro",
+    "icon": "align-wide",
+    "keywords": ["signposting", "triple", "astro"],
+    "acf": {
+        "mode": "auto"
+    }
+}
