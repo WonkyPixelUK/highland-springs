@@ -32,6 +32,10 @@
 			if ( has_nav_menu('menu_footer') ) {
 				$context['menu_footer'] = new TimberMenu('menu_footer');
 			}
+
+      if ( has_nav_menu('menu_footer_policy') ){
+        $context['menu_footer_policy'] = new TimberMenu('menu_footer_policy');
+      }
 		
 			$context['options'] = get_fields('options');
 
