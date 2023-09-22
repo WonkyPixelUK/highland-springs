@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
 import { Navigation } from 'swiper/modules';
 
 /**

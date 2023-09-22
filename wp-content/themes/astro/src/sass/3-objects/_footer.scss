@@ -63,7 +63,7 @@
     padding-top: 50px;
 
     &>.c-navigation__item{
-      @include fluid-size('margin-right', 5px, 50px);
+      @include fluid-size('margin-right', 5px, 50px, $break-desktop, $font-lock-max);
     }
   }
 
