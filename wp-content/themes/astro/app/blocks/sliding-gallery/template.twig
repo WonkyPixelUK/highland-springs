@@ -1,0 +1,33 @@
+{# Sliding gallery block #}
+
+{% set gallery = fields.gallery %}
+{% set title = fields.title %}
+{% set intro = fields.intro %}
+{% set link = fields.link %}
+
+<div class="b-sliding-gallery" id="b-sliding-gallery-{{ block.id }}">
+
+  {# swiper #}
+  <div class="swiper js-packages-swiper b-sliding-gallery__swiper">  
+  
+    <div class="b-sliding-gallery__swiper-navigation">
+      <div class="b-sliding-gallery__swiper-navigation-prev swiper-button-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="24" viewBox="0 0 15 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.35219 11.7714L14.5125 20.6064L11.6038 23.293L0.787255 11.5821L12.2805 0.721924L15 3.59992L6.35219 11.7714Z" fill="#FEFDF8"/></svg>
+      </div>
+      <div class="b-sliding-gallery__swiper-navigation-next swiper-button-next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="24" viewBox="0 0 15 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.64781 12.2438L0.487462 3.40875L3.39617 0.722169L14.2127 12.433L2.71945 23.2932L-3.44324e-06 20.4152L8.64781 12.2438Z" fill="#FEFDF8"/></svg>
+      </div>
+    </div>
+
+    <h2>{{title}}</h2>
+    <div class="swiper-wrapper b-sliding-gallery__swiper-wrapper">
+      {% for image in gallery %}
+        {% set image = Image(image) %}
+        <img loading="lazy" class="swiper-slide b-sliding-gallery__swiper-slide" src="{{ image.src|resize(700) }}" alt="{{ image.alt }}">
+      {% endfor %}
+    </div>
+    <p>{{intro}}</p>
+    <a class="e-button e-button--white" href="{{link.url}}">{{link.title}}</a>
+  </div>
+
+</div>
