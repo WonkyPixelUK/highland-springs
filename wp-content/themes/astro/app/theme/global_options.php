@@ -42,6 +42,8 @@
               'label' => 'Main menu video',
               'instructions' => 'Youtube video ID',
             ])
+            ->addText('copyright')
+            
 					->addTab('socials')
 						->addRepeater('socials')
 							->addImage('icon', [

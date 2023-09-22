@@ -1,19 +1,31 @@
 {% if items %}
 
-<nav class="c-navigation c-navigation--footer js-footer-menu">
-
   <ul class="c-navigation__list">
 
     {% for item in items %}
 
     <li class="{{ item.classes|join(' ') }} c-navigation__item">
       
-      {% if item.link %}
+      {% if item.children %}
 
+        <span class="c-navigation__link c-navigation__link--parent" target="{{ item.target }}" href="{{ item.link }}">
+          {{ item.title }}
+        </span>
+
+        <ul>
+          {% for child in item.children %}
+            <li>
+              <a class="c-navigation__link c-navigation__link--child {% if child.target %} c-navigation__link--out {% endif %}" target="{{ child.target }}" href="{{ child.link }}">
+                {{ child.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
+      {% else %}
         <a class="c-navigation__link" target="{{ item.target }}" href="{{ item.link }}">
           {{ item.title }}
         </a>
-
       {% endif %}
 
     </li>

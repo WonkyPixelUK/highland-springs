@@ -19,7 +19,8 @@
 				array(
 					'menu_main' => __('Main Menu'),
 					'menu_secondary' => __('Secondary Menu'),
-					'menu_footer' => __('Footer Menu')
+					'menu_footer' => __('Footer Menu'),
+          'menu_footer_policy' => __('Footer Policy Menu'),
 				)
 
 			);

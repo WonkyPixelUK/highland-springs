@@ -1,39 +1,56 @@
-{% set footer_logo = fn('get_theme_mod', 'footer_logo') %}
-
 {% set socials = options.socials %}
+{% set policy_menu = menu_footer_policy.get_items %}
 
-<footer class="o-footer container">
+<footer class="o-footer">
 
-	<div class="o-footer__inner container__inner grid">
+  <div class="o-footer__wave">
+    <svg width="100%" height="auto" viewBox="0 0 1440 133 " fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 133.967H1315.41H1440V102.824C1343.23 109.069 1236.66 112.804 1118.03 112.804C667.801 112.804 520.118 69.3947 408.686 36.641C341.176 16.7977 286.972 0.865234 186.859 0.865234C104.295 0.865234 43.9823 15.3231 0 35.8121V133.967Z" fill="#552B8B"/>
+    </svg>
+  </div>
 
-		<div class="col-12 col-md-6">
+  {# footer's got some bugs #}
+  <div class="o-footer__bee"></div>
+  <div class="o-footer__ladybug"></div>
 
-			{% if footer_logo %}
-			<a href="{{ site.url }}" title="{{ site.name }}" class="o-footer__logo">
-				<img src="{{ footer_logo }}" />
-			</a>
-			{% endif %}
+  <div class="o-footer__inner">
 
-			<div class="o-footer__details">
+    <div class="o-footer__top">
+      {% include '/components/logo.twig' %}
+      {% include '/components/menus/footer.twig' with {items: menu_footer.get_items } %}
+    </div>
 
-				{% if socials %}
-				<div class="o-footer__socials">
-					{% for social in socials %}
-						<a href="{{ social.url }}" target="_blank">
-							<img src="{{ TimberImage(social.icon_alternate) }}" />
-						</a>
-					{% endfor %}
-				</div>
-				{% endif %}
-
-			</div>
-
-		</div>
-
-		<div class="col-12 col-md-6">
-
-		</div>
-
-	</div>
+    {# social media icons #}
+    <div class="o-footer__bottom">
     
+      {% if socials %}
+      <div class="o-footer__socials">
+        {% for social in socials %}
+          <a href="{{ social.url }}" target="_blank">
+            <img src="{{ Image(social.icon) }}" />
+          </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="o-footer__bottom--menu">
+        <p class="o-footer__copy">
+          {{ options.copyright }}
+        </p>
+        
+        <ul>
+          {% for item in policy_menu %}
+            <li>
+              <a target="{{ item.target }}" href="{{ item.link }}">
+                {{ item.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
 </footer>
