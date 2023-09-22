@@ -5,10 +5,10 @@
 
 <nav class="c-navigation c-navigation--secondary">
   <div class="c-navigation__inner">
-    <div class="c-navigation__wrapper">
+    <div class="c-navigation__wrapper grid">
       
       {# navigation #}
-      <ul class="c-navigation__list c-navigation__list--top-level">
+      <ul class="c-navigation__list c-navigation__list--top-level col-12 col-md-6">
 
         {% for item in items %}
           <li class="{{ item.classes|join(' ') }} c-navigation__item c-navigation__item--level1 {% if item.children %} c-navigation__has-nested {% endif %}">
@@ -48,7 +48,7 @@
       </ul>
 
       {# video embed #}
-      <div>
+      <div class="col-12 col-md-6">
         <div class="c-navigation__video">
           
           <div class="c-navigation__video-play-wrapper">
@@ -56,7 +56,7 @@
               <div class="c-navigation__video-play-icon"></div>
             </button>
           </div>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/{{video}}?" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe width="100%" height="auto" src="https://www.youtube.com/embed/{{video}}?" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
         </div>
 
