@@ -28,6 +28,12 @@ $container-padding: 85px;
     height: 100%;
     padding-left: $container-padding;
     padding-right: $container-padding;
+
+    @media screen and (min-width: 1400px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .c-navigation__inner::before{
@@ -43,12 +49,14 @@ $container-padding: 85px;
   }
   
   .c-navigation__wrapper{
+    max-width: 1200px;
+    margin:auto;
     width: 100%;
     padding-top: 200px;
-    align-self: center;
-    justify-content: space-between;
-    display: flex;
-    flex-wrap: wrap;
+
+    @media screen and (min-width: 1400px) {
+      padding-top: 0px;
+    }
     
     .c-navigation__item--level1 > .c-navigation__link{
       transition: all 0.2s ease-in-out;
@@ -103,7 +111,7 @@ $container-padding: 85px;
   // video 
   .c-navigation__video{
     transform: rotate(3deg);
-    padding: 20px;
+    @include fluid-size('padding', 8px, 20px);
     background-color: $white;
     border-radius: 10px;
     position: relative;
@@ -114,6 +122,10 @@ $container-padding: 85px;
         opacity:0; 
         visibility: hidden;
       }
+    }
+
+    iframe{
+      aspect-ratio: 16/9;
     }
   }
   

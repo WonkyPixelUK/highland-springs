@@ -7,12 +7,13 @@ const initialize = () => {
   let menuVideoButton = document.querySelector('.c-navigation__video-play');
   let actualVideo = document.querySelector('iframe');
 
-  menuVideoButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    menuVideo.classList.add('is-playing');
-    actualVideo.src += "&autoplay=1";
+  if(menuVideo && actualVideo){
+    menuVideoButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      menuVideo.classList.add('is-playing');
+      actualVideo.src += "&autoplay=1";
+    });
   }
-  );
 
 }
 
