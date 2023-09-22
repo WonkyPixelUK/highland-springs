@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build --emptyOutDir"
@@ -12,7 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^4.4.9",
-    "sass": "^1.65.1"
+    "sass": "^1.65.1",
+    "vite": "^4.4.9"
+  },
+  "dependencies": {
+    "swiper": "^10.3.0"
   }
 }

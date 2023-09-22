@@ -1,0 +1,11 @@
+{
+    "name": "astro/sliding-gallery",
+    "title": "Sliding gallery",
+    "description": "Sliding gallery.",
+    "category": "astro",
+    "icon": "align-wide",
+    "keywords": ["sliding", "gallery", "astro"],
+    "acf": {
+        "mode": "auto"
+    }
+}
