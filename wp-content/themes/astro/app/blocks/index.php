@@ -18,6 +18,7 @@
     require_once __DIR__ . '/single-signposting/index.php';
     require_once __DIR__ . '/triple-signposting/index.php';
     require_once __DIR__ . '/sliding-gallery/index.php';
+    require_once __DIR__ . '/nutrition-table/index.php';
 
     /**
      * INSTANTIATE BLOCKS
@@ -44,6 +45,9 @@
     // Triple signposting
     new TripleSignposting();
 
-    // sliding gallery
+    // Sliding Gallery
     new SlidingGallery();
+
+    // Nutrition Table
+    new NutritionTable();
 ?>

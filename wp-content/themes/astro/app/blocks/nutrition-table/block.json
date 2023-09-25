@@ -1,0 +1,11 @@
+{
+    "name": "astro/nutrition-table",
+    "title": "Nutrition Table",
+    "description": "Tabbed table block.",
+    "category": "astro",
+    "icon": "align-wide",
+    "keywords": ["content"],
+    "acf": {
+        "mode": "auto"
+    }
+}
