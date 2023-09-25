@@ -1,7 +1,7 @@
 .b-triple-signposting{
   background-color: $lilac;
-  padding-top: 150px;
-  padding-bottom: 150px;
+  @include fluid-size('padding-top', 50px, 150px);
+  @include fluid-size('padding-bottom', 50px, 150px);
 
   &__top{
     display: flex;

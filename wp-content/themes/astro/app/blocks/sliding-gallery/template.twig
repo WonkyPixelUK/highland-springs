@@ -27,7 +27,11 @@
       {% endfor %}
     </div>
     <p>{{intro}}</p>
-    <a class="e-button e-button--white" href="{{link.url}}">{{link.title}}</a>
+    
+    {% if link %}
+      <a class="e-button e-button--white" href="{{link.url}}">{{link.title}}</a>
+    {% endif %}
+    
   </div>
 
 </div>
