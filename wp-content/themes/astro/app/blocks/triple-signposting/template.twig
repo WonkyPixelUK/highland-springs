@@ -7,7 +7,9 @@
   <div class="container__inner">
     <div class="b-triple-signposting__top">
       <h2>{{fields.title}}</h2>
-      <a class="e-button e-button--primary" href="{{fields.button.url}}">{{fields.button.title}}</a>
+      {% if fields.button %}
+        <a class="e-button e-button--primary" href="{{fields.button.url}}">{{fields.button.title}}</a>
+      {% endif %}
     </div>
   </div>
 

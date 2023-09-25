@@ -12,13 +12,19 @@
   border-width: 1px;
   border-radius: 100%;
 }
-
 .e-burger__close{
   position: absolute;
   right:0;
   top:0;
   display: none;
   transition: opacity 0.1s ease-in-out;
+  
+  rect{
+    fill: $white;
+  }
+  path{
+    stroke: $color-primary;
+  }
 
   svg{
     min-width: 40px;
@@ -26,30 +32,35 @@
   }
 
   span{
-    color: $color-primary;
     font-weight: bold;
     font-family: $font-secondary;
     margin-right: 16px;
+    color: $white;
+    @include large{
+      color: $color-primary;
+    }
   }
 }
 
 //hovers
-.e-burger:hover{
-  .e-burger__icon{
-    border : 2px solid $white;
-    rect{
-      fill: $color-primary;
+@include large{
+  .e-burger:hover{
+    .e-burger__icon{
+      border : 2px solid $white;
+      rect{
+        fill: $color-primary;
+      }
+      path{
+        stroke: $white;
+      }
     }
-    path{
-      stroke: $white;
-    }
-  }
-  .e-burger__close{
-    rect{
-      fill: $color-primary;
-    }
-    path{
-      stroke: $white;
+    .e-burger__close{
+      rect{
+        fill: $color-primary;
+      }
+      path{
+        stroke: $white;
+      }
     }
   }
 }
