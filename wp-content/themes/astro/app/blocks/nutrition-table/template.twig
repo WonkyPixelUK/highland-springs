@@ -1,9 +1,60 @@
 {# Content Block #}
-{# ref https://ryanmulligan.dev/blog/css-marquee/ #}
-{% set text = fields.text %}
+{% set title = fields.title %}
+{% set subtitle = fields.subtitle %}
+{% set background_text = fields.background_text %}
+{% set image = Image(fields.image) %}
+{% set tables = fields.tables %}
 
-<div class="b-nutrition-table" id="b-nutrition-table-{{ block.id }}">
-  
-  NUTRITION TABLE
+<div class="b-nutrition-table container" id="b-nutrition-table-{{ block.id }}">
+  <div class="container__inner b-nutrition-table__container-inner flex">
+
+    <div class="b-nutrition-table__title">
+      {% if title %}
+        <h2 class="bernino">{{ title }}</h2>
+      {% endif %}
+
+      {% if subtitle %}
+        <p>{{ subtitle }}</h2>
+      {% endif %}
+    </div>
+
+  </div>
+
+  {% if background_text %}
+    <span class="b-nutrition-table__bg-text bernino">{{ background_text }}</span>
+  {% endif %}
+
+  <div class="container__inner b-nutrition-table__content">
+    <div class="grid">
+      <div class="col-12 col-md-4">
+        {{ image }}
+      </div>
+
+      <div class="col-12 col-md-8">
+
+        {% if tables %}
+          <div class="b-nutrition-table__slider js-nutrition-table swiper">
+            <div class="b-nutrition-table__slider__pagination"></div>
+            <div class="b-nutrition-table__slider__wrapper swiper-wrapper">
+              {% for table in tables %}
+                <div class="b-nutrition-table__slider__slide swiper-slide" data-title="{{ table.tab_title }}">
+                  {% if table.table_content %}
+                    {% for column in table.table_content %}
+                      <div class="b-nutrition-table__slider__slide__column">
+                        {% for column_text in column.columns %}
+                          <span>{{ column_text.text }}</span>
+                        {% endfor %}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
 
 </div>
