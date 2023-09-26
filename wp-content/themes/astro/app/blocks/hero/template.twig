@@ -1,5 +1,7 @@
 {# Hero Block #}
 {% set type = fields.type %}
+{% set layout = fields.layout %}
+
 {% set content = fields.content %}
 {% set background = Image(fields.background) %}
 {% set title = fields.title %}
@@ -15,10 +17,11 @@
 
 
 {# The hero - image, bubbles and text #}
-<div class="b-hero" id="b-hero-{{ block.id }}">
+<div class="b-hero b-hero--{{layout}}" id="b-hero-{{ block.id }}">
 
   {# background image #}
   <img class="b-hero__background" src="{{background.src}}" alt="{{background.alt}}">
+
   <div class="b-hero__background-gradient"></div>
 
   {# droplets #}
@@ -30,6 +33,11 @@
   <div class="b-hero__droplet b-hero__droplet-6"></div>
   <div class="b-hero__droplet b-hero__droplet-7"></div>
 
+  {% if fields.bottle and layout == 'text-centered' %}
+    {% set bottle = Image(fields.bottle) %}
+    <img class="b-hero__text-centered-bottle" src="{{bottle.src}}" alt="{{bottle.alt}}">
+  {% endif %}
+
   {# content #}
   <div class="container b-hero__container">
     <div class="container__inner b-hero__container-inner flex">
@@ -37,11 +45,15 @@
       <div class="b-hero__content">
         <h1 class="b-hero__title bernino">{{title}}</h1>
         <h2 class="b-hero__subtitle">{{subtitle}}</h2>
-        <a class="b-hero__link e-button e-button--primary" href="{{link.url}}">{{link.title}}</a>
+        {% if link %}
+          <a class="b-hero__link e-button e-button--primary" href="{{link.url}}">{{link.title}}</a>
+        {% endif %}
       </div>
 
       {# hovering bottle #}
-      <div class="b-hero__bottle"></div>
+      {% if layout == 'default' %}
+        <div class="b-hero__bottle"></div>  
+      {% endif %}
 
     </div>
   </div>
