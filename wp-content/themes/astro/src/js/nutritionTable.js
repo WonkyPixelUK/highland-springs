@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
 import 'swiper/css';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 
 /**
  * Initialize
@@ -27,7 +27,7 @@ titles.forEach(function(element) {
 
 const initSwiper = ( tableSwiper ) => {
 	new Swiper( tableSwiper , {
-        modules: [Navigation, Pagination],
+        modules: [Navigation, Pagination, Scrollbar],
         spaceBetween: 30,
         grabCursor: true,
         slidesPerView: 1,
@@ -38,6 +38,11 @@ const initSwiper = ( tableSwiper ) => {
             renderBullet: function (index, className) {
               return '<span class="' + className + '">' + title[index] + '</span>';
             }
+        },
+        scrollbar: {
+            el: '.b-nutrition-table__slider__scrollbar',
+            draggable: true,
+            snapOnRelease: true
         }
 	});
 }
