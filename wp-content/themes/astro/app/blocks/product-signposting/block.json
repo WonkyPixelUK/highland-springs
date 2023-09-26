@@ -1,0 +1,11 @@
+{
+    "name": "astro/product-signposting",
+    "title": "Product Signposting",
+    "description": "Product signposting block.",
+    "category": "astro",
+    "icon": "align-wide",
+    "keywords": ["product"],
+    "acf": {
+        "mode": "auto"
+    }
+}
