@@ -1,6 +1,7 @@
 .b-product-signposting{
   background-color: $lilac;
-  @include fluid-size("padding-bottom", 10px, 100px);
+  @include fluid-size("padding-bottom", 10px, 70px);
+  @include fluid-size("padding-top", 10px, 70px);
 
   &--wave-right{
     .b-product-signposting__wave{
@@ -35,6 +36,7 @@
     @include fluid-size('padding-left', 30px, 100px);
     @include fluid-size('padding-right', 30px, 100px);
     @include fluid-size('padding-bottom', 15px, 80px);
+    @include fluid-size('padding-top', 15px, 80px);
 
     display: grid;
     grid-template-columns: 60% 40%;
