@@ -15,7 +15,7 @@
     background-image: url("/images/beige-wave.png");
     background-position: center;
     background-size: cover;
-    @include fluid-size("height", 30px, 250px, 350px, 2400px);
+    @include fluid-size("height", 30px, 150px, 350px, 1400px);
   }
 
   &__inner{
