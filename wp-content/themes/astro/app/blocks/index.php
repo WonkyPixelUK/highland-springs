@@ -18,6 +18,7 @@
     require_once __DIR__ . '/single-signposting/index.php';
     require_once __DIR__ . '/triple-signposting/index.php';
     require_once __DIR__ . '/sliding-gallery/index.php';
+    require_once __DIR__ . '/product-signposting/index.php';
 
     /**
      * INSTANTIATE BLOCKS
@@ -46,4 +47,7 @@
 
     // sliding gallery
     new SlidingGallery();
+
+    // product signposting
+    new ProductSignposting();
 ?>

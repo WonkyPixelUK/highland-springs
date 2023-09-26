@@ -1,0 +1,48 @@
+{# Product Signposting Block #}
+{% set title = fields.title %}
+{% set intro = fields.intro %}
+{% set image = Image(fields.image) %}
+{% set button = fields.button %}
+{% set type = fields.type %}
+
+<div class="b-product-signposting {% if type == 'wave-taller-on-right' %} b-product-signposting--wave-right {% endif %}" id="b-product-signposting-{{ block.id }}">
+  <div class="b-product-signposting__container container">
+    <div class="b-product-signposting__inner">
+
+      <div class="b-product-signposting__wave"></div>
+      
+      <div class="b-product-signposting__content">
+        
+        <div class="b-product-signposting__text-container">
+          <h2>{{title}}</h2>
+          <p>{{intro}}</p>
+          {% if button %}
+            <a href="{{button.url}}" class="e-button e-button--secondary">{{button.title}}</a>
+          {% endif %}
+        </div>
+        
+        {# image #}
+        <div class="b-product-signposting__image-container">
+          <img src="{{image.src}}" alt="{{image.alt}}">
+        </div>
+        
+      </div>
+      
+      {# card shadow #}
+      <svg class="b-product-signposting__shadow" width="100%" height="68" viewBox="0 0 1340 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_f_628_10960)">
+        <path d="M19.3325 19.9666V48.048C110.54 41.1143 364.201 27.2469 649.182 27.2469C934.163 27.2469 1215.36 41.1143 1320.33 48.048V19.9666H19.3325Z" fill="black" fill-opacity="0.19"/>
+        </g>
+        <defs>
+        <filter id="filter0_f_628_10960" x="0.33252" y="0.966553" width="1339" height="66.0815" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+        <feGaussianBlur stdDeviation="9.5" result="effect1_foregroundBlur_628_10960"/>
+        </filter>
+        </defs>
+      </svg>
+
+
+    </div>
+  </div>
+</div>
