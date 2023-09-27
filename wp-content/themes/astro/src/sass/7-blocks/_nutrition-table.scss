@@ -1,5 +1,5 @@
 .b-nutrition-table {
-    background-color: $lilac;
+    background-color: $lilac-lighter;
     padding-top: 150px;
     padding-bottom: 150px;
     position: relative;
@@ -15,7 +15,11 @@
     text-align: center;
     max-width: 680px;
     margin: auto;
-    padding-bottom: 300px;
+    padding-bottom: 60px;
+
+    @include medium {
+        padding-bottom: 200px;
+    }
 
     h2 {
         color: $purple;
@@ -44,6 +48,11 @@
     word-break: inherit;
     top: 275px;
     z-index: 0;
+    display: none;
+
+    @include medium {
+        display: inline-flex;
+    }
 }
 
 .b-nutrition-table__slider {
@@ -157,7 +166,7 @@
 .b-nutrition-table__slider__scrollbar {
     background-color: $black;
     height: 1px;
-    width: 550px;
+    width: 540px;
 }
 
 .swiper-scrollbar-drag {
@@ -166,4 +175,20 @@
     border-radius: 6px;
     position: relative;
     top: -2px
+}
+
+.b-nutrition-table__content {
+    position: relative;
+
+    > .grid {
+        align-items: center;
+    }
+}
+
+.b-nutrition-table__content__image {
+    display: none;
+
+    @include medium {
+        display: inline-flex;
+    }
 }
