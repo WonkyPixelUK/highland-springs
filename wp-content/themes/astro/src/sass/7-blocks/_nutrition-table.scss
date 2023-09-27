@@ -1,0 +1,194 @@
+.b-nutrition-table {
+    background-color: $lilac-lighter;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    position: relative;
+}
+
+.b-nutrition-table__container-inner {
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+.b-nutrition-table__title {
+    text-align: center;
+    max-width: 680px;
+    margin: auto;
+    padding-bottom: 60px;
+
+    @include medium {
+        padding-bottom: 200px;
+    }
+
+    h2 {
+        color: $purple;
+        font-size: 90px;
+        @include font-size(75px, 90px);
+        @include line-height(70px, 82px);
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    p {
+        color: $black;
+        @include font-size(16px);
+        @include line-height(22px);
+    }
+}
+
+.b-nutrition-table__bg-text {
+    color: $white;
+    @include font-size(220px, 259px);
+    text-transform: uppercase;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    word-break: inherit;
+    top: 275px;
+    z-index: 0;
+    display: none;
+
+    @include medium {
+        display: inline-flex;
+    }
+}
+
+.b-nutrition-table__slider {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    &.swiper {
+        padding-bottom: 10px;
+    }
+}
+
+.b-nutrition-table__slider__slide {
+    background-color: $white;
+    max-width: 550px;
+    width: 100%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.10); 
+    border-radius: 10px;
+    position: relative;
+    
+    &.swiper-slide {
+        display: inline-flex;
+    }
+
+    &:hover {
+        cursor: url("/images/drag-cursor.svg"), url("/images/drag-cursor.png"),  auto;
+    }
+}
+
+.b-nutrition-table__slider__slide__content {
+    background-color: $white;
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.b-nutrition-table__slider__slide__shadow {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.b-nutrition-table__slider__slide__column {
+    display: inline-flex;
+    flex-direction: column;
+    color: $black;
+    @include font-size(16px);
+    @include line-height(28px);
+    font-weight: 700;
+
+    span {
+        &:first-of-type {
+            @include font-size(22px);
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.b-nutrition-table__slider__pagination {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 30px;
+    justify-content: center;
+
+    .swiper-pagination-bullet {
+        color: $black;
+        @include font-size(26px, 30px);
+        @extend .bernino;
+        text-transform: uppercase;
+        padding-bottom: 6px;
+
+        &:hover,
+        &:focus {
+            cursor: pointer;
+        }
+
+        &-active {
+            color: $purple;
+            position: relative;
+
+            &:after {
+                content: '';
+                background-image: url("/images/tab-underline.svg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 4px;
+            }
+        }
+    }
+}
+
+.b-nutrition-table__slider__scroll {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.b-nutrition-table__slider__scrollbar {
+    background-color: $black;
+    height: 1px;
+    width: 540px;
+}
+
+.swiper-scrollbar-drag {
+    background-color: $purple;
+    height: 6px;
+    border-radius: 6px;
+    position: relative;
+    top: -2px
+}
+
+.b-nutrition-table__content {
+    position: relative;
+
+    > .grid {
+        align-items: center;
+    }
+}
+
+.b-nutrition-table__content__image {
+    display: none;
+
+    @include medium {
+        display: inline-flex;
+    }
+}
