@@ -1,0 +1,73 @@
+.b-postcard {
+    background-color: $lilac-lighter;
+}
+
+.b-postcard__container {
+    padding: 90px 0;
+}
+
+.b-postcard__container__inner {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1361" height="625" viewBox="0 0 1361 625" fill="none"><path d="M756.116 79.202C517.885 127.789 175.125 134.283 10.2006 131.395C4.59742 131.297 0.116211 135.808 0.116211 141.412V615C0.116211 620.523 4.59337 625 10.1162 625H1350.14C1355.65 625 1360.12 620.448 1360.14 614.932C1360.76 285.682 1361.6 78.824 1360.35 26.6136C1360.24 22.16 1357.07 18.4584 1352.73 17.4503C1167.22 -25.6487 1056.16 18.0096 756.116 79.202Z" fill="%23F3E8FF"/></svg>');
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.b-postcard__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.b-postcard__content__text {
+    max-width: 460px;
+    padding: 240px 0 80px 0;
+
+    h2 {
+        color: $purple;
+        @include font-size(65px, 90px);
+        @include line-height(60px, 82px);
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 20px;
+    }
+
+    p {
+       color: $black; 
+       @include font-size(16px);
+       @include line-height(22px);
+       margin-bottom: 40px;
+    }
+}
+
+.b-postcard__content__image {
+    padding: 90px 0;
+}
+
+.b-postcard__content__image__postcard {
+    border-radius: 10px;
+    background-color: $white;
+    transform: rotate(3.152deg);
+    position: relative;
+
+    img {
+        position: relative;
+        z-index: 2;
+        background-color: $white;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+
+.b-postcard__content__image__postcard__shadow  {
+    position: absolute;
+    bottom: -36px;
+    z-index: 1;
+
+    &--left {
+        left: 0;
+    }
+
+    &--right {
+        right: 0;
+    }
+}

@@ -5,9 +5,9 @@
 	use App\Blocks\Base;
 	use \StoutLogic\AcfBuilder\FieldsBuilder;
     
-	class CTABackgroundImage extends Base {
+	class CTAPostcard extends Base {
 
-		public $block_slug = 'cta-background-image';
+		public $block_slug = 'cta-postcard';
 		public $block_path = __DIR__ . '/block.json';
 
     	function register_fields () {
@@ -17,27 +17,17 @@
 				$fields = new FieldsBuilder( $this->block_slug );
 
 				$fields
-					->addTextarea( 'title', [
-						'label' => 'Title',
-						'new_lines' => 'br',
-						'rows' => '3'
+					->addText( 'title', [
+						'label' => 'Title'
 					] )
-					->addTextarea( 'subtitle', [
-						'label' => 'Subtitle',
-						'new_lines' => 'br',
-						'rows' => '3',
+					->addText( 'subtitle', [
+						'label' => 'Subtitle'
 					] )
 					->addLink( 'link', [
 						'label' => 'CTA Link'
 					] )
-					->addTrueFalse('text_color', [
-						'label' => 'Alternate Text Colour?'
-					] )
-					->addImage('feature_image', [
+					->addImage( 'image', [
 						'label' => 'Feature Image'
-					] )
-					->addImage('background_image', [
-						'label' => 'Background Image'
 					] )
 
 					->setLocation( 'block', '==', 'astro/' . $this->block_slug );

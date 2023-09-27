@@ -39,12 +39,14 @@
         @include font-size(90px, 140px);
         @include line-height(72px, 120px);
         text-transform: uppercase;
+        font-weight: 800;
     }
 
     h3 {
         @include font-size(24px, 29px);
         text-transform: uppercase;
         margin-top: 20px;
+        font-weight: 800;
     }
 }
 

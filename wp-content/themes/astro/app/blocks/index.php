@@ -21,6 +21,7 @@
     require_once __DIR__ . '/nutrition-table/index.php';
     require_once __DIR__ . '/product-signposting/index.php';
     require_once __DIR__ . '/cta-background-image/index.php';
+    require_once __DIR__ . '/cta-postcard/index.php';
 
     /**
      * INSTANTIATE BLOCKS
@@ -58,5 +59,8 @@
 
     // CTA Background Image
     new CTABackgroundImage();
+
+    // CTA Postcard
+    new CTAPostcard();
 
 ?>

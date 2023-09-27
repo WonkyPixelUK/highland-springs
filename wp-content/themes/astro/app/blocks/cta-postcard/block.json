@@ -1,0 +1,11 @@
+{
+    "name": "astro/cta-postcard",
+    "title": "CTA - Postcard",
+    "description": "CTA link with a feature image.",
+    "category": "astro",
+    "icon": "align-wide",
+    "keywords": ["content"],
+    "acf": {
+        "mode": "auto"
+    }
+}

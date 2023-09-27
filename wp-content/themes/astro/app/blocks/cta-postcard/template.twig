@@ -1,0 +1,59 @@
+{# Content Block #}
+{% set title = fields.title %}
+{% set subtitle = fields.subtitle %}
+{% set link = fields.link %}
+{% set image = Image(fields.image) %}
+
+<div class="b-postcard" id="b-postcard-{{ block.id }}">
+
+  <div class="container b-postcard__container">
+    <div class="container__inner b-postcard__container__inner">
+      <div class="b-postcard__content">
+        <div class="b-postcard__content__text">
+          {% if title %}
+            <h2>{{ title }}</h2>
+          {% endif %}
+          {% if subtitle %}
+            <p>{{ subtitle }}</p>
+          {% endif %}
+          {% if link %}
+            <a class="e-button e-button--secondary" href="{{link.url}}">{{link.title}}</a>
+          {% endif %}
+        </div>
+        <div class="b-postcard__content__image">
+          <div class="b-postcard__content__image__postcard">
+            <img src="{{ image }}" />
+
+            <svg class="b-postcard__content__image__postcard__shadow b-postcard__content__image__postcard__shadow--left" xmlns="http://www.w3.org/2000/svg" width="247" height="69" viewBox="0 0 247 69" fill="none">
+              <g filter="url(#filter0_f_535_12275)">
+              <path d="M20.9287 19.2377L19.9118 37.7029C46.1305 34.5737 118.852 29.4325 199.989 33.901L228.693 30.6801L20.9287 19.2377Z" fill="black" fill-opacity="0.3"/>
+              </g>
+              <defs>
+              <filter id="filter0_f_535_12275" x="0.911621" y="0.237671" width="246.781" height="56.4652" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="9.5" result="effect1_foregroundBlur_535_12275"/>
+              </filter>
+              </defs>
+            </svg>
+
+            <svg class="b-postcard__content__image__postcard__shadow b-postcard__content__image__postcard__shadow--right" xmlns="http://www.w3.org/2000/svg" width="247" height="69" viewBox="0 0 247 69" fill="none">
+              <g filter="url(#filter0_f_535_12274)">
+              <path d="M227.719 31.3281L226.702 49.7933C200.985 43.8039 129.268 30.7078 48.1312 26.2393L19.9547 19.8857L227.719 31.3281Z" fill="black" fill-opacity="0.3"/>
+              </g>
+              <defs>
+              <filter id="filter0_f_535_12274" x="0.95459" y="0.885742" width="245.764" height="67.9076" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+              <feGaussianBlur stdDeviation="9.5" result="effect1_foregroundBlur_535_12274"/>
+              </filter>
+              </defs>
+            </svg>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
