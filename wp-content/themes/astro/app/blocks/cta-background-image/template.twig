@@ -1,12 +1,64 @@
 {# Content Block #}
 {% set title = fields.title %}
+{% set subtitle = fields.subtitle %}
+{% set link = fields.link %}
+{% set background_image = Image(fields.background_image) %}
+{% set feature_image = Image(fields.feature_image) %}
+{% set text_color = fields.text_color %}
 
 <div class="b-cta-background-image" id="b-cta-background-{{ block.id }}">
 
   <div class="container b-cta-background-image__container">
+    <div class="container__inner b-cta-background-image__container__inner">
 
-      CTA BACKGROUND IMAGE
+      <div class="b-cta-background-image__background"></div>
 
+      <div class="b-cta-background-image__content">
+        <div class="b-cta-background-image__content__text {% if text_color %}b-cta-background-image__content__text--dark{% endif %}">
+          {% if title %}
+            <h2>{{title}}</h2>
+          {% endif %}
+
+          {% if subtitle %}
+            <h3>{{subtitle}}</h3>
+          {% endif %}
+
+          {% if link %}
+            <a class="e-button e-button--white" href="{{link.url}}">{{link.title}}</a>
+          {% endif %}
+        </div>
+        <div class="b-cta-background-image__content__image">
+          <img src="{{ feature_image }}" />
+        </div>
+      </div>
+
+      <svg class="shadow-bottom-left" xmlns="http://www.w3.org/2000/svg" width="777" height="68" viewBox="0 0 777 68" fill="none">
+        <g filter="url(#filter0_f_535_12198)">
+        <path d="M19.002 19.9988V48.0803C111.245 41.1466 367.785 27.2792 656.001 27.2792L757.027 19.9988H19.002Z" fill="black" fill-opacity="0.3"/>
+        </g>
+        <defs>
+        <filter id="filter0_f_535_12198" x="0.00195312" y="0.998779" width="776.025" height="66.0815" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+        <feGaussianBlur stdDeviation="9.5" result="effect1_foregroundBlur_535_12198"/>
+        </filter>
+        </defs>
+      </svg>
+
+      <svg class="shadow-bottom-right" xmlns="http://www.w3.org/2000/svg" width="778" height="68" viewBox="0 0 778 68" fill="none">
+        <g filter="url(#filter0_f_535_12199)">
+        <path d="M758.013 19.9988V48.0803C665.77 41.1466 409.23 27.2792 121.013 27.2792L19.9877 19.9988H758.013Z" fill="black" fill-opacity="0.3"/>
+        </g>
+        <defs>
+        <filter id="filter0_f_535_12199" x="0.987793" y="0.998779" width="776.025" height="66.0815" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+        <feGaussianBlur stdDeviation="9.5" result="effect1_foregroundBlur_535_12199"/>
+        </filter>
+        </defs>
+      </svg>
+
+    </div>
   </div>
   
 </div>

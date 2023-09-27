@@ -17,8 +17,27 @@
 				$fields = new FieldsBuilder( $this->block_slug );
 
 				$fields
-					->addText( 'title', [
-						'label' => 'Title'
+					->addTextarea( 'title', [
+						'label' => 'Title',
+						'new_lines' => 'br',
+						'rows' => '3'
+					] )
+					->addTextarea( 'subtitle', [
+						'label' => 'Subtitle',
+						'new_lines' => 'br',
+						'rows' => '3'
+					] )
+					->addLink( 'link', [
+						'label' => 'CTA Link'
+					] )
+					->addTrueFalse('text_color', [
+						'label' => 'Alternate Text Colour?'
+					] )
+					->addImage('feature_image', [
+						'label' => 'Feature Image'
+					] )
+					->addImage('background_image', [
+						'label' => 'Background Image'
 					] )
 
 					->setLocation( 'block', '==', 'astro/' . $this->block_slug );
