@@ -12,9 +12,7 @@
   }
 
   &__background{
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    object-fit: cover;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -42,53 +40,69 @@
     z-index: 999;
     
     &-1{
-      top:800px;
-      left: 1250px;
+      top:80%;
+      left: 90%;
+
       width: 67px;
       height: 49px;
       background-image: url("/images/droplets/4.svg");
     }
     &-2{
-      top: 360px;
-      left: 25px;
+      top: 30%;
+      left: 5%;
       width: 71px;
       height: 82px;
       background-image: url("/images/droplets/3.svg");
     }
     &-3{
-      top: 700px;
-      left: 10px;
+      top: 70%;
+      left: 2%;
       width: 36px;
       height: 42px;
       background-image: url("/images/droplets/3.svg");
     }
     &-4{
-      top: 900px;
-      left:600px;
+      display: none;
+      @include large{
+        display: block;
+      }
+
+      top:90%;
+      left:40%;
       width: 71.063px;
       height: 82.524px;
       transform: rotate(40.381deg);
       background-image: url("/images/droplets/3.svg");
     }
     &-5{
-      top: 250px;
-      left: 360px;
+      display: none;
+      @include large{
+        display: block;
+      }
+      
+      top: 25%;
+      left: 30%;
       width: 36.87px;
       height: 42.817px;
       transform: rotate(15deg);
       background-image: url("/images/droplets/16.svg");
     }
     &-6{
-      top:340px;
-      left:800px;
+      display: none;
+      @include large{
+        display: block;
+      }
+      
+      top:30%;
+      left:60%;
       width: 36.87px;
       height: 42.817px;
       transform: rotate(15deg);
       background-image: url("/images/droplets/110.svg");
     }
     &-7{
-      top: 530px;
-      left: 1300px;
+      top: 50%;
+      left: 90%;
       width: 36.87px;
       height: 42.817px;
       transform: rotate(15deg);
@@ -98,20 +112,28 @@
 
   &__bottle{
     background: url("/images/hero-bottle.png") no-repeat center;
+    background-size: contain;
     z-index: 998;
     position: absolute;
-    width: 361px;
-    height: 967px;
-    top: 250px;
 
+    @include fluid-size('top', 150px, 200px, $break-tablet, $break-desktop);
+    @include fluid-size('width', 150px, 361px);
+    @include fluid-size('height', 450px, 967px);
     @include fluid-size("right", 10%, 25%, $font-lock-max, 2400px);
-    
+    display: none;
+    @include medium{
+      display: block;
+    }
   }
 
   &__content{
-    max-width: 50%;
+    @include medium{
+      max-width: 50%;
+    }
+
     margin-top: 250px;
-    margin-bottom: 250px;
+    @include fluid-size("margin-top", 150px, 250px);
+    @include fluid-size("margin-bottom", 50px, 250px);
 
     h1{
       @extend .text-6xl;
@@ -134,13 +156,15 @@
 
 .b-hero-carousel{
   position: relative;
-  @include fluid-size("margin-top", -160px, -250px, $font-lock-max, 2400px);
+  @include fluid-size("margin-top", -120px, -250px, $font-lock-max, 2400px);
+  @include fluid-size('margin-top', -120px, -250px);
 
   &__background{
     width: 100vw;
     background-image: url("/images/lical-wave.png");
     background-position: center;
     background-size: cover;
+    @include fluid-size("height", 40px, 180px);
     @include fluid-size("height", 140px, 250px, $font-lock-max, 2400px);
   }
 
@@ -173,8 +197,8 @@
   
 
   &__title{
-    @include font-size(80px, 220px); 
-    @include line-height(80px, 220px);
+    @include font-size(60px, 220px); 
+    @include line-height(60px, 220px);
     color: $color-primary;
     text-transform: uppercase;
     margin-bottom: 15px;
@@ -219,6 +243,11 @@
       background-image: url("/images/droplets/17.svg");
     } 
     &-3{
+      display: none;
+      @include large{
+        display: block
+      }
+
       top:1000px;
       left: 200px;
       width: 56px;

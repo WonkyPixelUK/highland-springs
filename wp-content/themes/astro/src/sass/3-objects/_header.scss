@@ -3,19 +3,43 @@
   top: 0; 
   left:0;
   z-index: 1001;
+  background-color: $color-primary;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  @include large{
+    background-color: transparent;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 
   &__inner{
     display:flex;
     justify-content: space-between;
-    margin-left: 114px;
-    margin-right: 75px;
+    align-items: center;
+
+    @include large{
+      align-items: flex-start;
+    }
+    
+    @include fluid-size("margin-left", 20px, 114px);
+    @include fluid-size("margin-right", 20px, 75px);
   }
   .c-logo{
-    padding-top: 30px;
-    width: 118px;
+    width: 80px;
+    @include large{
+      padding-top: 30px;
+      width: 118px;
+    }
   }
 
   &__background-shape{
+
+    display: none;
+    @include large{
+      display: block;
+    }
+
     min-width: 1300px;
     filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.15));
     position: absolute;

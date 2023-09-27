@@ -28,8 +28,8 @@ h1, h2, h3, h4 {
 }
 
 .text-4xl {
-  @include font-size(45px, 60px, 768px, 1440px);
-  @include line-height(55px, 72px, 768px, 1440px);
+  @include font-size(30px, 60px, 768px, 1440px);
+  @include line-height(40px, 72px, 768px, 1440px);
 }
 
 .text-5xl {
@@ -38,8 +38,8 @@ h1, h2, h3, h4 {
 }
 
 .text-6xl {
-  @include font-size(90px, 160px, 768px, 1440px);
-  @include line-height(82px, 140px, 768px, 1440px);
+  @include font-size(70px, 160px, 768px, 1440px);
+  @include line-height(70px, 140px, 768px, 1440px);
 }
 
 p {

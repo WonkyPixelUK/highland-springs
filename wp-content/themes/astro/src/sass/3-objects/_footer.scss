@@ -40,29 +40,53 @@
   }
 
   &__inner{
-    padding-left: 70px;
-    padding-right: 70px;
+    @include fluid-size('padding-left', 20px, 70px);
+    @include fluid-size('padding-right', 20px, 70px);
 
     max-width: 1500px;
     margin: auto;
   }
 
   &__top{
-    display: flex;
-    justify-content: space-between;
+    @include medium{
+      display: flex;
+      justify-content: space-between;
+    }
 
     .c-logo{
-      width: 170px;
-      height: 120px;
+      width: 120px;
+      height: 60px;
+
+      @include medium{
+        width: 170px;
+        height: 120px;
+      }
       display: block;
-      @include fluid-size('margin-top', -20px, -80px);
+      @include fluid-size('margin-top', 0px, -80px);
     }
   }
 
   .c-navigation__list{
     padding-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @include small{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .c-navigation__link{
+      @include fluid-size('margin-right', 20px, 40px);
+    }
 
     &>.c-navigation__item{
+      margin-bottom: 25px;
+
+      @include small{
+        margin-bottom: 0px;
+      }
+
       @include fluid-size('margin-right', 5px, 50px, $break-desktop, $font-lock-max);
     }
   }
@@ -87,27 +111,41 @@
   }
 
   &__bottom{
-    display: flex;
-    justify-content: space-between;
+    @include medium{
+      display: flex;
+      justify-content: space-between;
+    }
+
     align-items: center;
     padding-top: 30px;
     padding-bottom: 30px;
     color: $white;
 
     &--menu{
-      display: flex;
-      justify-content: space-between;
+      @include medium{
+        display: flex;
+        justify-content: space-between;
+      }
     }
 
     ul{
       display: flex;
       align-items: center;
+      margin-top: 10px;
+
+      @include medium{
+        margin-top: 0px;
+      }
 
       li{
         @include font-size(10px, 12px);
         @include line-height(10px, 12px);
         padding: 0 10px;
         border-right: 1px solid $white;
+
+        &:first-child{
+          padding-left: 0px !important;
+        }
 
         &:last-child{
           border-right: none;
@@ -123,5 +161,13 @@
   &__copy{
     @include font-size(10px, 12px);
     @include line-height(10px, 12px);
+  }
+
+  &__socials{
+    margin-bottom:15px;
+
+    @include medium{
+      margin-bottom: 0px;
+    }
   }
 }
