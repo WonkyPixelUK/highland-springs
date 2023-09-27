@@ -5,9 +5,9 @@ import heroCarousel from "./heroCarousel";
 import slidingGallery from "./slidingGallery";
 import nutritionTable from "./nutritionTable";
 
-// menu();
-// menuVideo();
-// menuNested(); 
-// heroCarousel();
+menu();
+menuVideo();
+menuNested(); 
+heroCarousel();
 slidingGallery();
 nutritionTable();
