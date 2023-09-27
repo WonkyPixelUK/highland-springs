@@ -1,0 +1,11 @@
+{
+    "name": "astro/cta-background-image",
+    "title": "CTA - Background Image",
+    "description": "CTA link with a full width background image.",
+    "category": "astro",
+    "icon": "align-wide",
+    "keywords": ["content"],
+    "acf": {
+        "mode": "auto"
+    }
+}

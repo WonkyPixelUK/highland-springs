@@ -20,6 +20,7 @@
     require_once __DIR__ . '/sliding-gallery/index.php';
     require_once __DIR__ . '/nutrition-table/index.php';
     require_once __DIR__ . '/product-signposting/index.php';
+    require_once __DIR__ . '/cta-background-image/index.php';
 
     /**
      * INSTANTIATE BLOCKS
@@ -52,6 +53,10 @@
     // Nutrition Table
     new NutritionTable();
 
-    // product signposting
+    // Product Signposting
     new ProductSignposting();
+
+    // CTA Background Image
+    new CTABackgroundImage();
+
 ?>
