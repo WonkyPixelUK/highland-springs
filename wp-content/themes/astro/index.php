@@ -15,4 +15,6 @@ $context['post'] = new Timber\Post();
 
 $template = 'views/index.twig';
 
+// triggering a build via git, to be deleted later.
+
 Timber::render( $template, $context );
