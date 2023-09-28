@@ -156,6 +156,10 @@
 //layout - text-centered
 .b-hero--text-centered{
 
+  .b-hero__container-inner{
+    justify-content: center;
+  }
+
   @include large{
     height: 100vh;
   }
