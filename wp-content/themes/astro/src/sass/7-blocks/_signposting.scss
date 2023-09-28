@@ -3,6 +3,25 @@
   @include fluid-size('padding-top', 50px, 150px);
   @include fluid-size('padding-bottom', 50px, 150px);
 
+  &--remove-bottom-spacing{
+    @include fluid-size('padding-bottom', 0px, 0px);
+  }
+  
+  &--remove-top-spacing{
+    @include fluid-size('padding-top', 0px, 0px);
+  }
+
+  &--skew-left{
+    .b-signposting__card{
+      transform : rotate(-1.3deg);
+    }
+  }
+  &--skew-right{
+    .b-signposting__card{
+      transform : rotate(1.3deg);
+    }
+  }
+
   .container__inner{
     max-width: 600px;
 

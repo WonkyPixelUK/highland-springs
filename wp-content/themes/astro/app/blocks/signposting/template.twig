@@ -6,7 +6,7 @@
   {% set cards = fields.cards %}
 {% endif %}
 
-<div class="b-signposting container 
+<div class="b-signposting container b-signposting--skew-{{fields.skew}}
   {% if cards|length == 2 %} b-signposting--double {% else %} b-signposting--single {% endif %}" id="b-signposting-{{ block.id }}
   {% if fields.remove_bottom_spacing %}
     b-signposting--remove-bottom-spacing

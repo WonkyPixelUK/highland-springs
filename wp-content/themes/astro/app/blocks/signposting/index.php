@@ -18,12 +18,27 @@
 
         $fields
           ->addButtonGroup( 'type', [
+						'ui' => '1',
+						'wrapper' => [
+							'width' => '50'
+            ],
 						'choices' => [
 							'linked' => 'Linked to a page or a post',
 							'manual' => 'Curated text and image'
 						],
 						'default' => 'linked'
 					] )
+          ->addButtonGroup( 'skew', [
+            'ui' => '1',
+            'wrapper' => [
+              'width' => '50'
+            ],
+            'choices' => [
+              'none' => 'None',
+              'left' => 'Left',
+              'right' => 'Right'
+            ],
+          ])
 
           // linked
           ->addRelationship('link', [
