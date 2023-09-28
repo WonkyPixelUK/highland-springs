@@ -17,11 +17,25 @@
 				$fields = new FieldsBuilder( $this->block_slug );
 
           $fields
+          ->addButtonGroup('layout', [
+            'label' => 'Layout',
+            'choices' => [
+              'default' => 'Default',
+              'text-centered' => 'Centered text, small bottle at the bottom',
+            ],
+            'default_value' => 'default',
+          ])
+
+
           ->addImage( 'background' )
 					->addText( 'title')
           ->addText( 'subtitle' )
           ->addLink( 'link' )
+            ->conditional('layout', '==', 'default')
+          ->addImage('bottle')
+            ->conditional('layout', '==', 'text-centered')
 
+          // options for the bottom part of the hero - nothing, carousel or row of bottles
           ->addButtonGroup( 'type', [
 						'choices' => [
 							'with-carousel' => 'With Carousel',
