@@ -1,0 +1,105 @@
+.b-signposting{
+  background-color: $lilac;
+  @include fluid-size('padding-top', 50px, 150px);
+  @include fluid-size('padding-bottom', 50px, 150px);
+
+  .container__inner{
+    max-width: 600px;
+
+    @include large{
+      max-width: 1100px;
+    }
+  }
+
+  &__card{
+    background-color: $white;
+    padding: 10px;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.12));
+    border-radius: 10px;
+  }
+
+  &__card-shadow{ 
+    margin-top: -30px;
+  }
+
+  img{
+    border-radius: 10px;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  &__card-content{
+    @include fluid-size('padding-top', 10px, 40px);
+    @include fluid-size('padding-bottom', 10px, 40px);
+    display: grid;
+    align-content: space-between;
+    height: 100%;
+  }
+
+  h2{
+    @extend .text-5xl;
+    color: $color-primary;
+    text-transform: uppercase;
+  }
+
+  p{
+    color: $black;
+    @include font-size(14px, 16px);
+  }
+
+  a{
+    @include fluid-size('margin-top', 40px, 0px);
+    align-self: end;
+    justify-self: start;
+  }
+
+  &--single{
+    .b-signposting__card{
+      @extend .grid;
+    }
+
+    img{
+      @extend .col-12;
+      @extend .col-lg-6;
+      @include fluid-size('min-height', 200px, 400px);
+      max-height: 550px;
+      width: 100%;
+    }
+
+    .b-signposting__card-content{
+      @extend .col-12;
+      @extend .col-lg-6;
+    }
+  }
+
+  @include large{
+    &--double{
+      .container__inner{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 40px;
+      }
+      
+      .b-signposting__card-content{
+        @include fluid-size('padding-top', 10px, 20px);
+        @include fluid-size('padding-bottom', 10px, 20px);
+        @include fluid-size('padding-left', 4px, 8px);
+        @include fluid-size('padding-right', 4px, 8px);
+      }
+
+      h2{
+        @include font-size(22px, 30px);
+        @include line-height(30px, 40px);
+        color: $black;
+      }
+      p{
+        @include fluid-size('margin-bottom', 20px, 70px);
+      }
+      img{
+        @include fluid-size('min-height', 100px, 250px);
+        max-height: 250px;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,13 +1,13 @@
-<?php 
+<?php
 
   namespace App\Blocks;
 
 	use App\Blocks\Base;
   use \StoutLogic\AcfBuilder\FieldsBuilder;
     
-	class SingleSignposting extends Base {
+	class Signposting extends Base {
 
-		public $block_slug = 'single-signposting';
+		public $block_slug = 'signposting';
 		public $block_path = __DIR__ . '/block.json';
 
     function register_fields () {
@@ -29,19 +29,35 @@
           ->addRelationship('link', [
 						'post_type' => ['page', 'post'],
             'min' => 1,
-            'max' => 1,
+            'max' => 2,
 					])
             ->conditional('type', '==', 'linked')
           
             // manual
-          ->addImage( 'image' )
+          ->addRepeater('cards', [
+            'layout' => 'block',
+            'button_label' => 'Add item',
+            'max' => 2
+          ])
             ->conditional('type', '==', 'manual')
-					->addText( 'title')
-            ->conditional('type', '==', 'manual')
-          ->addTextarea( 'intro' )
-            ->conditional('type', '==', 'manual')
-          ->addLink( 'button' )
-            ->conditional('type', '==', 'manual')
+            ->addImage( 'image', ['required'=>true] )
+            ->addText( 'title', ['required'=>true])
+            ->addTextarea('intro')
+            ->addLink( 'button' )
+          ->endRepeater()
+
+          ->addTrueFalse( 'remove_bottom_spacing', [
+						'ui' => '1',
+						'wrapper' => [
+							'width' => '50'
+						]
+					] )
+					->addTrueFalse( 'remove_top_spacing', [
+						'ui' => '1',
+						'wrapper' => [
+							'width' => '50'
+						]
+					] )
 
 					->setLocation( 'block', '==', 'astro/' . $this->block_slug );
 

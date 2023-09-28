@@ -1,0 +1,71 @@
+{# Single signpost Block #}
+
+{% if fields.type == 'linked' %}
+  {% set cards = fields.link %}
+{% else %}
+  {% set cards = fields.cards %}
+{% endif %}
+
+<div class="b-signposting container 
+  {% if cards|length == 2 %} b-signposting--double {% else %} b-signposting--single {% endif %}" id="b-signposting-{{ block.id }}
+  {% if fields.remove_bottom_spacing %}
+    b-signposting--remove-bottom-spacing
+  {% endif %}
+  {% if fields.remove_top_spacing %}
+    b-signposting--remove-top-spacing
+  {% endif %}
+">
+  <div class="container__inner">
+    
+    {% for card in cards %}
+      {% if fields.type == 'linked' %}
+        {% set link = Post(card) %}
+        {% set title = link.title %}
+        {% set buttonUrl = link.url %}
+        {% set buttonText = 'Read more'  %}
+        {% set excerpt = link.post_excerpt %}
+        {% set image = Image(link.thumbnail).src|resize(500) %}
+        {% set imageAlt = Image(link.thumbnail).alt %}
+      {% else %}
+        {% set title = card.title %}
+        {% set url = card.url %}
+        {% set excerpt = card.intro %}
+        {% set image = Image(card.image).src|resize(500) %}
+        {% set imageAlt = Image(card.image).alt %}
+        {% set buttonText = card.button.title  %}
+        {% set buttonUrl = card.button.url %}
+        {% set buttonTarget = card.button.target %}
+      {% endif %}
+
+      <div>
+        <div class="b-signposting__card">
+          <img class="" loading="lazy" src="{{image}}" alt="{{imageAlt}}">
+
+          <div class="b-signposting__card-content">
+            <div>
+              <h2>{{title}}</h2>
+              <p>{{excerpt}}</p>
+            </div>
+            <a target="{{buttonTarget}}" href="{{buttonUrl}}" class="e-button e-button--secondary b-signposting__card-link">{{buttonText}}</a>
+          </div>
+
+        </div>
+
+        {# card shadow #}
+        <svg class="b-signposting__card-shadow" xmlns="http://www.w3.org/2000/svg" width="100%" height="67" viewBox="0 0 1125 67" fill="none">
+          <g filter="url(#filter0_f_628_9392)">
+          <path d="M19 19.918V47.9995C95.205 41.0658 307.141 27.1984 545.246 27.1984C783.351 27.1984 1018.29 41.0658 1106 47.9995V19.918H19Z" fill="black" fill-opacity="0.19"/>
+          </g>
+          <defs>
+          <filter id="filter0_f_628_9392" x="0" y="0.917969" width="1125" height="66.0815" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+          <feGaussianBlur stdDeviation="9.5" result="effect1_foregroundBlur_628_9392"/>
+          </filter>
+          </defs>
+        </svg>
+      </div>
+    {% endfor %}
+
+    </div>
+</div>
