@@ -26,7 +26,6 @@
             'default_value' => 'default',
           ])
 
-
           ->addImage( 'background' )
 					->addText( 'title')
           ->addText( 'subtitle' )
@@ -39,16 +38,22 @@
           ->addButtonGroup( 'type', [
 						'choices' => [
 							'with-carousel' => 'With Carousel',
-							'without-carousel' => 'Without Carousel'
+							'without-carousel' => 'Without Carousel',
+              'with-bottles' => 'With Bottles'
 						],
 						'default' => 'with-carousel'
 					] )
           ->addText( 'carousel_title')
             ->conditional('type', '==', 'with-carousel')
+            ->or('type', '==', 'with-bottles')
           ->addText( 'carousel_subtitle' )
             ->conditional('type', '==', 'with-carousel')
+            ->or('type', '==', 'with-bottles')
           ->addLink( 'carousel_link' )
             ->conditional('type', '==', 'with-carousel')
+            ->or('type', '==', 'with-bottles')
+          ->addImage('bottles_image')
+            ->conditional('type', '==', 'with-bottles')
           ->addGallery('carousel_images', [
             'label' => 'Carousel images',
             'instructions' => '',

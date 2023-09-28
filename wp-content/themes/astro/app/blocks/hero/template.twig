@@ -8,16 +8,20 @@
 {% set subtitle = fields.subtitle %}
 {% set link = fields.link %}
 
-{% if type == "with-carousel" %}
+{% if type == "with-carousel" or "with-bottles" %}
   {% set carousel_title = fields.carousel_title %}
   {% set carousel_subtitle = fields.carousel_subtitle %}
   {% set carousel_link = fields.carousel_link %}
   {% set carousel_images = fields.carousel_images %}
 {% endif %}
 
+{% if type == "with-bottles" %}
+  {% set bottles_image = Image(fields.bottles_image) %}
+{% endif %}
+
 
 {# The hero - image, bubbles and text #}
-<div class="b-hero b-hero--{{layout}}" id="b-hero-{{ block.id }}">
+<div class="b-hero {% if background is empty %} b-hero--no-bg {% endif %} b-hero--{{layout}} b-hero--{{type}}" id="b-hero-{{ block.id }}">
 
   {# background image #}
   <img class="b-hero__background" src="{{background.src}}" alt="{{background.alt}}">
@@ -60,8 +64,8 @@
 </div>
 
 {# carousel #}
-{% if type == "with-carousel" %}
-<div class="b-hero-carousel">
+{% if type == "with-carousel" or type == "with-bottles" %}
+<div class="b-hero-carousel b-hero-carousel--{{type}}">
 
   <div class="b-hero-carousel__background"></div>
 
@@ -77,11 +81,18 @@
       <div class="b-hero-carousel__content">
         <h1 class="b-hero-carousel__title bernino">{{carousel_title}}</h1>
         
-        {% include 'views/components/carousel.twig' with {
-          images: carousel_images
-        } %}
+        {% if type == "with-carousel "%}
+          {% include 'views/components/carousel.twig' with {
+            images: carousel_images
+          } %}
+        {% endif %}
 
         <h2 class="b-hero-carousel__subtitle">{{carousel_subtitle}}</h2>
+
+        {% if type == "with-bottles" %}
+          <img src="{{bottles_image.src}}" alt="{{bottles_image.alt}}">
+        {% endif %}
+
         <a class="b-hero-carousel__link e-button e-button--primary" href="{{carousel_link.url}}">{{carousel_link.title}}</a>
       </div>
 

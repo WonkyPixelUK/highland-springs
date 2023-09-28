@@ -2,6 +2,10 @@
   width:100%;
   position: relative;
 
+  @include large{
+    height: 100vh;
+  }
+
   &__container{
     height: 100%;
   }
@@ -132,7 +136,7 @@
     }
 
     @include fluid-size("margin-top", 150px, 250px);
-    @include fluid-size("margin-bottom", 50px, 250px);
+    @include fluid-size("margin-bottom", 100px, 250px);
 
     h1{
       @extend .text-6xl;
@@ -150,6 +154,19 @@
       margin-top:45px;
       @include font-size(14px, 22px);
     }
+  }
+
+  &--no-bg{
+    background-color: $lilac-lighter;
+
+    h1{
+      color: $color-primary;
+    }
+
+    h2{
+      color: $black;
+    }
+
   }
 }
 
@@ -250,8 +267,8 @@
   }
 
   &__container-inner{
-    padding-top:90px;
-    padding-bottom: 90px;
+    @include fluid-size("padding-top", 20px, 90px);
+    @include fluid-size("padding-bottom", 20px, 90px);
     align-items: center;
     justify-content: center;
   }
@@ -316,5 +333,28 @@
       height: 65px;
       background-image: url("/images/droplets/115.svg");
     } 
+  }
+}
+
+.b-hero--with-bottles{
+  .b-hero__carousel{
+    @include fluid-size("margin-top", -50px, -50px, $font-lock-max, 2400px);
+    @include fluid-size('margin-top', -50px, -50px);
+  } 
+
+  .b-hero__bottle{
+    @include fluid-size('height', 350px, 650px);
+  }
+}
+.b-hero-carousel--with-bottles{
+  .b-hero-carousel__title{
+    margin-bottom: 0px !important;
+  }
+
+  img{
+    @include fluid-size('margin-top', 0px, -100px);
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
   }
 }
