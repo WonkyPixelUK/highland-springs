@@ -15,7 +15,7 @@
     require_once __DIR__ . '/content/index.php';
     require_once __DIR__ . '/hero/index.php';
     require_once __DIR__ . '/marquee/index.php';
-    require_once __DIR__ . '/single-signposting/index.php';
+    require_once __DIR__ . '/signposting/index.php';
     require_once __DIR__ . '/triple-signposting/index.php';
     require_once __DIR__ . '/sliding-gallery/index.php';
     require_once __DIR__ . '/nutrition-table/index.php';
@@ -42,7 +42,7 @@
     new Marquee();
 
     // Single signposting
-    new SingleSignposting();
+    new Signposting();
 
     // Triple signposting
     new TripleSignposting();

@@ -1,0 +1,11 @@
+{
+    "name": "astro/signposting",
+    "title": "Signposting",
+    "description": "Signposting.",
+    "category": "astro",
+    "icon": "align-wide",
+    "keywords": ["signposting", "astro"],
+    "acf": {
+        "mode": "auto"
+    }
+}
